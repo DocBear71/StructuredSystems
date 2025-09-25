@@ -10,18 +10,35 @@
 </head>
 <body>
 <!-- Header Template -->
+<!-- Header Template E (simplified for inner pages) -->
 <header class="main-header">
+  <!-- Page Title (E) Left Side -->
+  <h1 class="page-title">Page Not Found</h1>
+  <!-- Right side container -->
   <div class="header-right">
-    <div class="dropdown">
+    <!-- Login/Settings (A) -->
+    <div class="login-notifications-row">
+      <div class="dropdown">
       <button class="dropdown-btn">Menu</button>
       <div class="dropdown-content">
         <a href="../dashboard.html">Home</a>
         <a href="services/appointment-services.html">Services</a>
-        <a href="login.html">Login</a>
+        <a href="#login.html">Login</a>
+      </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">3</span>
       </div>
     </div>
+
+    <div class="search-container">
+      <label>
+        <input type="text" placeholder="Search appointment services..." class="search-input" id="serviceSearch">
+      </label>
+      <button class="search-btn" onclick="filterServices()">Search</button>
+    </div>
   </div>
-  <h1 class="page-title">Page Not Found</h1>
 </header>
 
 <!-- 404 Content -->

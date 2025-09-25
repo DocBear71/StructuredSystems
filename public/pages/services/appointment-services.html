@@ -32,7 +32,9 @@
     </div>
 
     <div class="search-container">
+      <label>
       <input type="text" placeholder="Search appointment services..." class="search-input" id="serviceSearch">
+      </label>
       <button class="search-btn" onclick="filterServices()">Search</button>
     </div>
   </div>
@@ -51,20 +53,24 @@
 <div class="filter-section">
   <h3>Filter Services</h3>
   <div class="filter-controls">
-    <select id="categoryFilter" onchange="filterServices()">
+    <label for="categoryFilter">
+      <select id="categoryFilter" onchange="filterServices()">
       <option value="all">All Categories</option>
       <option value="legal">Legal Services</option>
       <option value="health">Healthcare</option>
       <option value="financial">Financial Counseling</option>
       <option value="therapy">Therapy & Counseling</option>
     </select>
+    </label>
 
+    <label for="availabilityFilter">
     <select id="availabilityFilter" onchange="filterServices()">
       <option value="all">All Availability</option>
       <option value="today">Available Today</option>
       <option value="this-week">This Week</option>
       <option value="emergency">Emergency Slots</option>
     </select>
+    </label>
 
     <button onclick="clearFilters()" class="clear-filters-btn">Clear Filters</button>
   </div>
@@ -95,7 +101,7 @@
         <div class="service-details">
           <div class="detail-item">
             <span class="icon">📅</span>
-            <span>Next Available: Tuesday, Sept 24th at 2:00 PM</span>
+            <span>Next Available: Wednesday, Sept 24th at 2:00 PM</span>
           </div>
           <div class="detail-item">
             <span class="icon">📍</span>
