@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Angie - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Angie-specific customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #9b59b6, #8e44ad);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .volunteer-focus .category-card {
+      border-left-color: #9b59b6;
+    }
+
+    .volunteer-priority {
+      border-left-color: #e67e22 !important;
+      background: linear-gradient(135deg, #fdf6e3, #f5f1e8) !important;
+    }
+
+    .volunteer-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .volunteer-stats {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #9b59b6;
+    }
+
+    .client-request {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    .urgent-request {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Welcome, Angie</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Angie's Volunteer Portal</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="persona-angie.html">Volunteer Dashboard</a>
+          <a href="#appointments">My Volunteer Schedule</a>
+          <a href="#clients">Client Messages</a>
+          <a href="#credentials">Upload Credentials</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">4</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search volunteer opportunities..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Volunteer-focused Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Appointment Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?provider=true">Manage Time Slots</a></li>
+        <li><a href="services/appointment-services.html?provider=true&action=create">Create Availability</a></li>
+        <li><a href="services/appointment-services.html?provider=true&action=view">View All Appointments</a></li>
+        <li><a href="services/appointment-services.html?provider=true&action=filter">Filter by Date/Type</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Client Communication</a>
+      <ul class="dropdown-menu">
+        <li><a href="#messaging">Message Clients</a></li>
+        <li><a href="#reminders">Send Reminders</a></li>
+        <li><a href="#requests">View Requests</a></li>
+        <li><a href="#reviews">Rate & Review Service</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Service Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#track-service">Track Service Hours</a></li>
+        <li><a href="#credentials">Display Credentials</a></li>
+        <li><a href="#documents">Upload Documents</a></li>
+        <li><a href="#specialties">Update Specialties</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">My Impact</a></li>
+  </ul>
+</nav>
+
+<!-- Persona Welcome Section -->
+<div class="persona-welcome">
+  <h2>🤝 Volunteer Service Dashboard</h2>
+  <p>Manage your volunteer time, help those in need with tax assistance, and coordinate your charitable service efficiently. Thank you for making a difference!</p>
+</div>
+
+<!-- Angie's Volunteer Stats -->
+<div class="container">
+  <div class="volunteer-dashboard">
+    <div class="volunteer-stats">
+      <h3>📊 This Month's Impact</h3>
+      <p><strong>Volunteer Hours:</strong> 24 hours<br>
+        <strong>Clients Helped:</strong> 18 people<br>
+        <strong>Tax Returns:</strong> 15 completed<br>
+        <strong>Average Rating:</strong> ⭐ 4.9/5.0</p>
+    </div>
+
+    <div class="volunteer-stats">
+      <h3>📅 This Week's Schedule</h3>
+      <p><strong>Tuesday:</strong> 6:00 PM - 8:00 PM (2 appointments)<br>
+        <strong>Thursday:</strong> 6:30 PM - 9:00 PM (3 appointments)<br>
+        <strong>Saturday:</strong> 10:00 AM - 2:00 PM (4 appointments)</p>
+    </div>
+
+    <div class="volunteer-stats">
+      <h3>💬 Recent Client Feedback</h3>
+      <p>"Angie was so patient and thorough with my complex tax situation. She saved me hundreds of dollars!" - Maria S.<br>
+        <br><strong>Pending Reviews:</strong> 2 clients</p>
+    </div>
+  </div>
+</div>
+
+<!-- Current Client Requests -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Current Client Requests</h2>
+
+  <div class="client-request urgent-request">
+    <h4>🚨 Priority Request - Tax Deadline Help</h4>
+    <p><strong>Client:</strong> James R. | <strong>Service:</strong> Complex tax return with business income<br>
+      <strong>Requested Time:</strong> This week, evening preferred<br>
+      <strong>Notes:</strong> Filed extension, needs help before final deadline</p>
+    <button class="view-details-btn" style="background: #e74c3c;">Accept Request</button>
+    <button class="view-details-btn" style="background: #95a5a6; margin-left: 0.5rem;">View Details</button>
+  </div>
+
+  <div class="client-request">
+    <h4>📋 Standard Request - Financial Planning</h4>
+    <p><strong>Client:</strong> Sandra M. | <strong>Service:</strong> Budget planning and financial organization<br>
+      <strong>Requested Time:</strong> Next week, flexible<br>
+      <strong>Notes:</strong> First-time client, needs basic financial guidance</p>
+    <button class="view-details-btn">Accept Request</button>
+    <button class="view-details-btn" style="background: #95a5a6; margin-left: 0.5rem;">View Details</button>
+  </div>
+</div>
+
+<!-- Angie's Quick Access - Volunteer Management Focused -->
+<div class="quick-access volunteer-focus">
+  <div class="quick-access-header">
+    <h2>Volunteer Service Management</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Create Availability</button>
+      <button class="btn-secondary">Message Client</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card volunteer-priority" data-count="12">
+      <h3>Manage Appointments</h3>
+      <p>Create time slots, view bookings, and organize your volunteer schedule efficiently</p>
+      <a href="services/appointment-services.html?provider=true" class="category-link">Manage Schedule →</a>
+    </div>
+
+    <div class="category-card volunteer-priority" data-count="8">
+      <h3>Message Clients</h3>
+      <p>Communicate with clients, send appointment reminders, and provide updates</p>
+      <a href="#messaging" class="category-link">Send Messages →</a>
+    </div>
+
+    <div class="category-card" data-count="6">
+      <h3>Get Appointment Reminders</h3>
+      <p>Receive notifications for upcoming appointments and schedule changes</p>
+      <a href="#reminders" class="category-link">Set Reminders →</a>
+    </div>
+
+    <div class="category-card" data-count="15">
+      <h3>Filter by Task Types</h3>
+      <p>Organize appointments by service type: tax prep, budgeting, financial planning</p>
+      <a href="services/appointment-services.html?provider=true&action=filter" class="category-link">Filter Services →</a>
+    </div>
+
+    <div class="category-card" data-count="4">
+      <h3>Rate & Review Service</h3>
+      <p>Provide feedback on client interactions and track service quality</p>
+      <a href="#reviews" class="category-link">Review Services →</a>
+    </div>
+
+    <div class="category-card" data-count="9">
+      <h3>Track Service Hours</h3>
+      <p>Monitor volunteer hours, document impact, and maintain service records</p>
+      <a href="#track-service" class="category-link">Track Hours →</a>
+    </div>
+
+    <div class="category-card" data-count="3">
+      <h3>Display Credentials</h3>
+      <p>Showcase your CPA license and tax preparation certifications to clients</p>
+      <a href="#credentials" class="category-link">Manage Credentials →</a>
+    </div>
+
+    <div class="category-card" data-count="7">
+      <h3>Upload Documents</h3>
+      <p>Share resources, forms, and educational materials with clients</p>
+      <a href="#documents" class="category-link">Upload Files →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Volunteer Tools</h3>
+      <ul>
+        <li><a href="#">Schedule Management</a></li>
+        <li><a href="#">Client Communication</a></li>
+        <li><a href="#">Service Tracking</a></li>
+        <li><a href="#">Resource Sharing</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Your Service</h3>
+      <ul>
+        <li><a href="#">Current Appointments</a></li>
+        <li><a href="#">Service History</a></li>
+        <li><a href="#">Client Feedback</a></li>
+        <li><a href="#">Volunteer Hours</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Volunteer Coordinator</a></li>
+        <li><a href="#">Technical Help</a></li>
+        <li><a href="#">Training Resources</a></li>
+        <li><a href="#">Recognition Program</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Thank You for Your Service to the Community</p>
+  </div>
+</footer>
+</body>
+</html>

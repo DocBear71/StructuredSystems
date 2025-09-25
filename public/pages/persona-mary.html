@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Mary - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Mary-specific customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #27ae60, #229954);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .employment-focus .category-card {
+      border-left-color: #27ae60;
+    }
+
+    .employment-priority {
+      border-left-color: #e67e22 !important;
+      background: linear-gradient(135deg, #fdf6e3, #f5f1e8) !important;
+    }
+
+    .job-search-tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .tool-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #27ae60;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Welcome, Mary</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Mary's Account</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="persona-mary.html">Job Search Dashboard</a>
+          <a href="#applications">My Applications</a>
+          <a href="#resume">Resume Builder</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">5</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search job services..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Employment-focused Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Job Training</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/education-classes.html?type=job-skills">Skills Development</a></li>
+        <li><a href="services/education-classes.html?type=interview">Interview Preparation</a></li>
+        <li><a href="services/education-classes.html?type=resume">Resume Writing</a></li>
+        <li><a href="services/education-classes.html?type=networking">Professional Networking</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Job Placement</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?type=placement">Job Placement Services</a></li>
+        <li><a href="services/appointment-services.html?type=counseling">Career Counseling</a></li>
+        <li><a href="services/appointment-services.html?type=coaching">Job Search Coaching</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Anti-Discrimination</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?type=legal">Legal Support</a></li>
+        <li><a href="services/group-meetings.html?type=advocacy">Advocacy Groups</a></li>
+        <li><a href="services/appointment-services.html?type=rights">Know Your Rights</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">My Applications</a></li>
+  </ul>
+</nav>
+
+<!-- Persona Welcome Section -->
+<div class="persona-welcome">
+  <h2>💼 Job Search Command Center</h2>
+  <p>Your path to financial independence and stable employment. Access job training, placement services, and anti-discrimination support all in one place.</p>
+</div>
+
+<!-- Mary's Job Search Tools -->
+<div class="container">
+  <h2 style="text-align: center; color: #2c3e50; margin-bottom: 2rem;">Quick Job Search Tools</h2>
+  <div class="job-search-tools">
+    <div class="tool-card">
+      <h3>🎯 Job Match Finder</h3>
+      <p>Find jobs that match your skills and preferences</p>
+      <button class="view-details-btn">Find Jobs</button>
+    </div>
+    <div class="tool-card">
+      <h3>📝 Application Tracker</h3>
+      <p>Track your applications and follow-up dates</p>
+      <button class="view-details-btn">View Applications</button>
+    </div>
+    <div class="tool-card">
+      <h3>📄 Resume Builder</h3>
+      <p>Create and update your professional resume</p>
+      <button class="view-details-btn">Build Resume</button>
+    </div>
+    <div class="tool-card">
+      <h3>📅 Interview Scheduler</h3>
+      <p>Schedule mock interviews and preparation sessions</p>
+      <button class="view-details-btn">Schedule</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mary's Quick Access - Employment Focused -->
+<div class="quick-access employment-focus">
+  <div class="quick-access-header">
+    <h2>Priority Employment Services</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Application Status</button>
+      <button class="btn-secondary">Interview Prep</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card employment-priority" data-count="15">
+      <h3>Job Training Programs</h3>
+      <p>Skills development, marketable skills training, and certification programs</p>
+      <a href="services/education-classes.html?type=job-training" class="category-link">View Programs →</a>
+    </div>
+
+    <div class="category-card employment-priority" data-count="8">
+      <h3>Job Placement Services</h3>
+      <p>Direct connections with accepting employers and placement support</p>
+      <a href="services/appointment-services.html?type=placement" class="category-link">Get Placed →</a>
+    </div>
+
+    <div class="category-card" data-count="12">
+      <h3>Anti-Discrimination Systems</h3>
+      <p>Legal support, advocacy, and workplace rights protection</p>
+      <a href="services/appointment-services.html?type=legal" class="category-link">Get Support →</a>
+    </div>
+
+    <div class="category-card" data-count="6">
+      <h3>Career Counseling</h3>
+      <p>One-on-one guidance for career planning and job search strategy</p>
+      <a href="services/appointment-services.html?type=counseling" class="category-link">Schedule →</a>
+    </div>
+
+    <div class="category-card" data-count="20">
+      <h3>Interview Preparation</h3>
+      <p>Mock interviews, presentation skills, and confidence building</p>
+      <a href="services/education-classes.html?type=interview" class="category-link">Practice →</a>
+    </div>
+
+    <div class="category-card" data-count="4">
+      <h3>Professional Networking</h3>
+      <p>Connect with professionals, mentors, and job search support groups</p>
+      <a href="services/group-meetings.html?type=networking" class="category-link">Network →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Mary's Current Job Search Status -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Your Job Search Progress</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Applications This Week</h3>
+        <div class="service-type">Active</div>
+        <p><strong>Submitted:</strong> 12 applications<br>
+          <strong>Responses:</strong> 3 interviews scheduled<br>
+          <strong>Next Interview:</strong> Tomorrow 2:00 PM</p>
+        <a href="#" class="view-details-btn">View Details</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Skills Assessment</h3>
+        <div class="service-type" style="background: #f39c12;">Recommended</div>
+        <p><strong>Purpose:</strong> Identify marketable skills<br>
+          <strong>Duration:</strong> 2 hours<br>
+          <strong>Next Available:</strong> Friday 10:00 AM</p>
+        <a href="#" class="view-details-btn">Schedule</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Legal Consultation</h3>
+        <div class="service-type" style="background: #e74c3c;">Priority</div>
+        <p><strong>Topic:</strong> Employment discrimination case<br>
+          <strong>Attorney:</strong> Sarah Johnson, Employment Law<br>
+          <strong>Status:</strong> Follow-up required</p>
+        <a href="#" class="view-details-btn">Contact Attorney</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Job Search Support</h3>
+      <ul>
+        <li><a href="#">Job Training</a></li>
+        <li><a href="#">Placement Services</a></li>
+        <li><a href="#">Resume Help</a></li>
+        <li><a href="#">Interview Prep</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Your Applications</h3>
+      <ul>
+        <li><a href="#">Active Applications</a></li>
+        <li><a href="#">Interview Schedule</a></li>
+        <li><a href="#">Application History</a></li>
+        <li><a href="#">Follow-up Tracker</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Legal Support</h3>
+      <ul>
+        <li><a href="#">Discrimination Help</a></li>
+        <li><a href="#">Workplace Rights</a></li>
+        <li><a href="#">Legal Consultation</a></li>
+        <li><a href="#">Advocacy Services</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Supporting Your Path to Employment</p>
+  </div>
+</footer>
+</body>
+</html>

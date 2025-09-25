@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Edward - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Edward-specific customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .education-focus .category-card {
+      border-left-color: #3498db;
+    }
+
+    .education-priority {
+      border-left-color: #e74c3c !important;
+      background: linear-gradient(135deg, #fff5f5, #ffe6e6) !important;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Welcome, Edward</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Edward's Account</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="persona-edward.html">My Dashboard</a>
+          <a href="#settings">Settings</a>
+          <a href="#progress">Education Progress</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">2</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search education services..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Education-focused Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Education Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/education-classes.html">Language Classes</a></li>
+        <li><a href="services/education-classes.html?type=life-skills">Life Skills Training</a></li>
+        <li><a href="services/education-classes.html?type=job-training">Job Training Programs</a></li>
+        <li><a href="services/education-classes.html?type=cultural">Cultural Orientation</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Support Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?type=counseling">Educational Counseling</a></li>
+        <li><a href="services/appointment-services.html?type=benefits">Benefits Navigation</a></li>
+        <li><a href="services/group-meetings.html?type=student">Student Support Groups</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">My Progress</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Resources</a></li>
+  </ul>
+</nav>
+
+<!-- Persona Welcome Section -->
+<div class="persona-welcome">
+  <h2>🎓 Education Pathway Dashboard</h2>
+  <p>Your journey to educational success and independence starts here. Find the language training, life skills, and educational support you need.</p>
+</div>
+
+<!-- Edward's Quick Access - Education Focused -->
+<div class="quick-access education-focus">
+  <div class="quick-access-header">
+    <h2>Priority Education Services</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">View Progress</button>
+      <button class="btn-secondary">Set Goals</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card education-priority" data-count="8">
+      <h3>Language & Communication</h3>
+      <p>English classes, conversation practice, and communication skill development</p>
+      <a href="services/education-classes.html?type=language" class="category-link">Browse Classes →</a>
+    </div>
+
+    <div class="category-card education-priority" data-count="12">
+      <h3>Life Skills Training</h3>
+      <p>Essential skills for independent living, financial literacy, and daily life management</p>
+      <a href="services/education-classes.html?type=life-skills" class="category-link">View Programs →</a>
+    </div>
+
+    <div class="category-card" data-count="6">
+      <h3>Job Training Programs</h3>
+      <p>Career preparation, skill development, and pathway to employment</p>
+      <a href="services/education-classes.html?type=job-training" class="category-link">Explore Training →</a>
+    </div>
+
+    <div class="category-card" data-count="4">
+      <h3>Educational Benefits</h3>
+      <p>Navigate educational rights, benefits, and financial assistance programs</p>
+      <a href="services/appointment-services.html?type=benefits" class="category-link">Get Help →</a>
+    </div>
+
+    <div class="category-card" data-count="15">
+      <h3>Cultural Orientation</h3>
+      <p>Community integration, cultural understanding, and social connections</p>
+      <a href="services/group-meetings.html?type=cultural" class="category-link">Join Groups →</a>
+    </div>
+
+    <div class="category-card" data-count="3">
+      <h3>Academic Counseling</h3>
+      <p>One-on-one guidance for educational planning and goal setting</p>
+      <a href="services/appointment-services.html?type=counseling" class="category-link">Schedule →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Edward's Current Progress Section -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Your Current Education Path</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>English Language - Level 2</h3>
+        <div class="service-type">In Progress</div>
+        <p><strong>Next Class:</strong> Tuesday 6:00 PM<br>
+          <strong>Progress:</strong> 65% complete<br>
+          <strong>Location:</strong> Community Center Room 12</p>
+        <a href="#" class="view-details-btn">View Progress</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Life Skills Workshop</h3>
+        <div class="service-type" style="background: #f39c12;">Enrolled</div>
+        <p><strong>Topic:</strong> Financial Budgeting<br>
+          <strong>Starts:</strong> Next Monday<br>
+          <strong>Duration:</strong> 4 weeks</p>
+        <a href="#" class="view-details-btn">View Details</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Job Training Readiness</h3>
+        <div class="service-type" style="background: #95a5a6;">Recommended</div>
+        <p><strong>Prerequisite:</strong> Complete Language Level 2<br>
+          <strong>Focus:</strong> Interview skills, workplace culture<br>
+          <strong>Duration:</strong> 6 weeks</p>
+        <a href="#" class="view-details-btn">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Education Support</h3>
+      <ul>
+        <li><a href="#">Language Learning</a></li>
+        <li><a href="#">Life Skills</a></li>
+        <li><a href="#">Job Training</a></li>
+        <li><a href="#">Educational Benefits</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Your Progress</h3>
+      <ul>
+        <li><a href="#">Current Classes</a></li>
+        <li><a href="#">Completed Courses</a></li>
+        <li><a href="#">Certificates Earned</a></li>
+        <li><a href="#">Next Steps</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Educational Counselor</a></li>
+        <li><a href="#">Technical Help</a></li>
+        <li><a href="#">Study Groups</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Supporting Your Educational Journey</p>
+  </div>
+</footer>
+</body>
+</html>

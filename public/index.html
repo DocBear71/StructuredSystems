@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Resource Support - Connecting You to Resources</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Landing page specific styles */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(46, 204, 113, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><circle fill="%23e9ecef" cx="200" cy="150" r="80"/><circle fill="%23dee2e6" cx="800" cy="300" r="120"/><circle fill="%23ced4da" cx="1000" cy="100" r="60"/></svg>');
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .cta-button {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 1rem 2rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .cta-button:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .cta-primary {
+      background: #27ae60;
+      border-color: #27ae60;
+    }
+
+    .cta-primary:hover {
+      background: #229954;
+      border-color: #229954;
+    }
+
+    .login-section {
+      background: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    }
+
+    .login-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .login-card {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .login-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .card-title {
+      color: #2c3e50;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .card-button {
+      background: #3498db;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .card-button:hover {
+      background: #2980b9;
+    }
+
+    .features-section {
+      background: #f8f9fa;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #3498db;
+      margin-bottom: 1rem;
+    }
+
+    .stats-section {
+      background: #2c3e50;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #3498db;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Hero Section -->
+<div class="hero-banner">
+  <div class="hero-content">
+    <h1>Community Resource Support</h1>
+    <p>Connecting You to Community Resources</p>
+    <p style="font-size: 1.1rem; margin-bottom: 3rem;">Find the help you need, when you need it. Our platform connects you with local service providers, volunteers, and community support all in one place.</p>
+
+    <div class="cta-buttons">
+      <a href="#get-help" class="cta-button cta-primary">Find Help Now</a>
+      <a href="#volunteer" class="cta-button">Volunteer to Help</a>
+      <a href="#providers" class="cta-button">Provide Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Access Login Section -->
+<div class="login-section" id="get-help">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Access Your Resources</h2>
+  <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Choose your role to access personalized services and support</p>
+
+  <div class="login-options">
+    <div class="login-card" onclick="window.location.href='pages/persona-frank.html'">
+      <span class="card-icon">🚨</span>
+      <h3 class="card-title">Need Help Right Now?</h3>
+      <p class="card-description">Emergency housing, food, crisis support, legal help. Get immediate assistance without creating an account.</p>
+      <button class="card-button" style="background: #e74c3c;">Get Emergency Help</button>
+    </div>
+
+    <div class="login-card" onclick="showServiceRecipientOptions()">
+      <span class="card-icon">🤝</span>
+      <h3 class="card-title">Looking for Services</h3>
+      <p class="card-description">Find education, job training, healthcare, legal services, and community support programs.</p>
+      <button class="card-button">Find Services</button>
+    </div>
+
+    <div class="login-card" onclick="showVolunteerOptions()">
+      <span class="card-icon">💪</span>
+      <h3 class="card-title">Want to Volunteer</h3>
+      <p class="card-description">Help your community by volunteering your time, skills, or transportation to those in need.</p>
+      <button class="card-button" style="background: #8e44ad;">Volunteer Now</button>
+    </div>
+
+    <div class="login-card" onclick="showProviderOptions()">
+      <span class="card-icon">🏥</span>
+      <h3 class="card-title">Service Providers</h3>
+      <p class="card-description">Healthcare, legal, educational, and social service professionals offering charitable services.</p>
+      <button class="card-button" style="background: #27ae60;">Provider Portal</button>
+    </div>
+
+    <div class="login-card" onclick="showSystemOptions()">
+      <span class="card-icon">⚙️</span>
+      <h3 class="card-title">System Administration</h3>
+      <p class="card-description">System administrators, coordinators, and staff managing the community resource network.</p>
+      <button class="card-button" style="background: #34495e;">Admin Access</button>
+    </div>
+
+    <div class="login-card" onclick="window.location.href='pages/login.html'">
+      <span class="card-icon">👤</span>
+      <h3 class="card-title">General Login</h3>
+      <p class="card-description">Already have an account? Log in with your username and password to access your dashboard.</p>
+      <button class="card-button" style="background: #95a5a6;">Sign In</button>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="features-section">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">How We Connect Your Community</h2>
+  <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Our platform brings together people who need help with those who can provide it</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Find Resources</h3>
+      <p>Easily search and discover local services, support groups, volunteer opportunities, and community programs tailored to your needs.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <h3>Schedule Services</h3>
+      <p>Book appointments, join walk-in services, enroll in classes, and coordinate with volunteers all through one platform.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🤝</div>
+      <h3>Connect People</h3>
+      <p>Bridge the gap between service providers, volunteers, and community members who need support and assistance.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🌍</div>
+      <h3>Build Community</h3>
+      <p>Strengthen local connections by making it easier for people to help each other and access vital community resources.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Stats Section -->
+<div class="stats-section">
+  <h2 style="margin-bottom: 2rem;">Community Impact</h2>
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-number">5,600+</span>
+      <div class="stat-label">People Helped</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">890</span>
+      <div class="stat-label">Volunteer Hours This Month</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">147</span>
+      <div class="stat-label">Available Services</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">99.2%</span>
+      <div class="stat-label">Service Satisfaction</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Get Help</h3>
+      <ul>
+        <li><a href="pages/persona-frank.html">Emergency Services</a></li>
+        <li><a href="#housing">Housing Assistance</a></li>
+        <li><a href="#food">Food Programs</a></li>
+        <li><a href="#healthcare">Healthcare Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Give Help</h3>
+      <ul>
+        <li><a href="pages/persona-bobby.html">Volunteer Coordination</a></li>
+        <li><a href="pages/persona-dave.html">Transportation Help</a></li>
+        <li><a href="pages/persona-angie.html">Professional Services</a></li>
+        <li><a href="#donate">Donate Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#mission">Our Mission</a></li>
+        <li><a href="#partners">Community Partners</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Community Resource Support<br>
+        Cedar Rapids, Iowa<br>
+        Phone: (319) 555-HELP<br>
+        Email: help@communityresources.org</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Connecting Communities, Changing Lives</p>
+  </div>
+</footer>
+
+<!-- JavaScript for Login Options -->
+<script>
+  function showServiceRecipientOptions() {
+    const options = [
+      { name: 'Edward - Education & Training', url: 'pages/persona-edward.html', desc: 'Language classes, life skills, job training' },
+      { name: 'Mary - Job Search Support', url: 'pages/persona-mary.html', desc: 'Employment services, anti-discrimination help' },
+      { name: 'Pete - Healthcare Navigation', url: 'pages/persona-pete.html', desc: 'Medical appointments, insurance, care coordination' }
+    ];
+    showLoginModal('Choose Your Service Type', options);
+  }
+
+  function showVolunteerOptions() {
+    const options = [
+      { name: 'Dave - Transportation Volunteer', url: 'pages/persona-dave.html', desc: 'Help people get to appointments and services' },
+      { name: 'Bobby - Volunteer Coordinator', url: 'pages/persona-bobby.html', desc: 'Organize volunteers and community events' },
+      { name: 'Angie - Professional Volunteer', url: 'pages/persona-angie.html', desc: 'Tax help, professional consultations' }
+    ];
+    showLoginModal('Choose Your Volunteer Role', options);
+  }
+
+  function showProviderOptions() {
+    const options = [
+      { name: 'Sarah Chen - Professional Provider', url: 'pages/persona-sarah.html', desc: 'Healthcare, legal, therapy, consulting services' },
+      { name: 'John - Service Information Manager', url: 'pages/persona-john.html', desc: 'Manage service listings and client access' }
+    ];
+    showLoginModal('Choose Your Provider Type', options);
+  }
+
+  function showSystemOptions() {
+    const options = [
+      { name: 'Tommy - System Administrator', url: 'pages/persona-tommy.html', desc: 'System management, user accounts, security' },
+      { name: 'System Moderator', url: 'pages/persona-tommy.html', desc: 'Content moderation and user support' }
+    ];
+    showLoginModal('Choose Your System Role', options);
+  }
+
+  function showLoginModal(title, options) {
+    // Simple modal implementation
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); display: flex; align-items: center;
+                justify-content: center; z-index: 10000;
+            `;
+
+    const content = document.createElement('div');
+    content.style.cssText = `
+                background: white; padding: 2rem; border-radius: 10px;
+                max-width: 500px; width: 90%;
+            `;
+
+    let html = `<h3 style="margin-bottom: 1rem; color: #2c3e50;">${title}</h3>`;
+    options.forEach(option => {
+      html += `
+                    <div style="border: 1px solid #ddd; padding: 1rem; margin: 0.5rem 0;
+                               border-radius: 5px; cursor: pointer; transition: background 0.3s;"
+                         onclick="window.location.href='${option.url}'"
+                         onmouseover="this.style.background='#f8f9fa'"
+                         onmouseout="this.style.background='white'">
+                        <strong>${option.name}</strong><br>
+                        <small style="color: #666;">${option.desc}</small>
+                    </div>
+                `;
+    });
+    html += `<button onclick="this.closest('.modal').remove()"
+                            style="margin-top: 1rem; padding: 0.5rem 1rem; background: #95a5a6;
+                                   color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>`;
+
+    content.innerHTML = html;
+    modal.appendChild(content);
+    modal.className = 'modal';
+    document.body.appendChild(modal);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.remove();
+    });
+  }
+</script>
+</body>
+</html>

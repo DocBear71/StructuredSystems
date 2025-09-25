@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<!-- Header Template -->
+<header class="main-header">
+  <div class="header-right">
+    <div class="dropdown">
+      <button class="dropdown-btn">Menu</button>
+      <div class="dropdown-content">
+        <a href="../dashboard.html">Home</a>
+        <a href="services/appointment-services.html">Services</a>
+        <a href="login.html">Login</a>
+      </div>
+    </div>
+  </div>
+  <h1 class="page-title">Page Not Found</h1>
+</header>
+
+<!-- 404 Content -->
+<main class="main-content" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+  <div class="error-container" style="text-align: center; max-width: 600px; padding: 2rem;">
+    <div style="font-size: 6rem; color: #3498db; margin-bottom: 1rem;">404</div>
+    <h2 style="color: #2c3e50; margin-bottom: 1rem; font-size: 2rem;">Page Not Found</h2>
+    <p style="color: #666; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
+      We're sorry, but the page you're looking for doesn't exist. This might be because:
+    </p>
+
+    <ul style="text-align: left; color: #666; margin-bottom: 2rem; display: inline-block;">
+      <li style="margin-bottom: 0.5rem;">The link you followed is outdated or broken</li>
+      <li style="margin-bottom: 0.5rem;">You typed the web address incorrectly</li>
+      <li style="margin-bottom: 0.5rem;">The page has been moved or removed</li>
+      <li style="margin-bottom: 0.5rem;">This is a demo link that hasn't been implemented yet</li>
+    </ul>
+
+    <div class="error-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="../dashboard.html" class="btn-primary" style="text-decoration: none;">Return Home</a>
+      <a href="services/appointment-services.html" class="btn-secondary" style="text-decoration: none;">Browse Services</a>
+      <button class="btn-secondary" onclick="window.history.back()">Go Back</button>
+    </div>
+
+    <!-- Quick Help Links -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+      <h3 style="color: #2c3e50; margin-bottom: 1rem;">Need Help Right Now?</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 3px solid #e74c3c;">
+          <h4 style="color: #e74c3c; margin-bottom: 0.5rem;">Crisis Support</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Call 988 for mental health crisis support</p>
+        </div>
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 3px solid #27ae60;">
+          <h4 style="color: #27ae60; margin-bottom: 0.5rem;">Community Resources</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Dial 211 for local resource information</p>
+        </div>
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 3px solid #3498db;">
+          <h4 style="color: #3498db; margin-bottom: 0.5rem;">Emergency Services</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Call 911 for immediate emergencies</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Get Help</h3>
+      <ul>
+        <li><a href="../dashboard.html#emergency">Emergency Services</a></li>
+        <li><a href="../dashboard.html#food">Food Assistance</a></li>
+        <li><a href="../dashboard.html#housing">Housing Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>About</h3>
+      <ul>
+        <li><a href="../dashboard.html#about">About This Demo</a></li>
+        <li><a href="../dashboard.html#contact">Contact Information</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Community Resource Support System Demo</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Log 404 error for analytics (in a real system)
+  console.log('404 Error - Page not found:', window.location.href);
+
+  // Simple search functionality for 404 page
+  function searchFromError() {
+    const query = prompt('What are you looking for?');
+    if (query && query.trim()) {
+      window.location.href = `search/search-results.html?q=${encodeURIComponent(query)}`;
+    }
+  }
+
+  // Add search option
+  document.addEventListener('DOMContentLoaded', function() {
+    const errorActions = document.querySelector('.error-actions');
+    if (errorActions) {
+      const searchBtn = document.createElement('button');
+      searchBtn.className = 'btn-secondary';
+      searchBtn.textContent = 'Search Site';
+      searchBtn.onclick = searchFromError;
+      errorActions.appendChild(searchBtn);
+    }
+  });
+</script>
+</body>
+</html>

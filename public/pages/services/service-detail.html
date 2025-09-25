@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details - Community Resource Support</title>
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+<!-- Header Template E (simplified for inner pages) -->
+<header class="main-header">
+  <!-- Page Title (E) Left Side -->
+  <h1 class="page-title">Service Details</h1>
+  <!-- Right side container -->
+  <div class="header-right">
+    <!-- Login/Settings (A) -->
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Menu</button>
+        <div class="dropdown-content">
+          <a href="../../dashboard.html">Home</a>
+          <a href="appointment-services.html">Back to Services</a>
+          <a href="../login.html">Login</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">3</span>
+      </div>
+    </div>
+
+
+    <div class="search-container">
+      <input type="text" placeholder="Search appointment services..." class="search-input" id="serviceSearch">
+      <button class="search-btn" onclick="filterServices()">Search</button>
+    </div>
+  </div>
+
+
+</header>
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb">
+  <a href="../../dashboard.html">Home</a> >
+  <a href="appointment-services.html">Appointment Services</a> >
+  <span>Service Detail</span>
+</nav>
+
+<!-- Service Detail Container -->
+<main class="service-detail-container">
+
+  <!-- Service Header -->
+  <div class="service-detail-header">
+    <h1 id="serviceName">Free Legal Consultation</h1>
+    <p class="provider" id="providerName">Cedar Rapids Legal Aid Society</p>
+  </div>
+
+  <!-- Service Detail Body -->
+  <div class="service-detail-body">
+
+    <!-- Service Overview -->
+    <section class="detail-section">
+      <h2>📋 Service Overview</h2>
+      <p id="serviceDescription">
+        Free legal advice and consultation services for individuals and families facing housing, benefits, and family
+        law issues. Our experienced attorneys provide comprehensive guidance and support at no cost to those who
+        qualify. We specialize in helping people navigate complex legal situations and understand their rights and
+        options.
+      </p>
+    </section>
+
+    <!-- Availability & Scheduling -->
+    <section class="detail-section">
+      <h2>📅 Availability & Scheduling</h2>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h4>Next Available Appointment</h4>
+          <p>Tuesday, September 24th at 2:00 PM</p>
+        </div>
+        <div class="detail-card">
+          <h4>Appointment Duration</h4>
+          <p>60 minutes (initial consultation)</p>
+        </div>
+        <div class="detail-card">
+          <h4>Booking Method</h4>
+          <p>Online booking or phone call</p>
+        </div>
+        <div class="detail-card">
+          <h4>Advance Notice</h4>
+          <p>24-48 hours preferred</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section class="detail-section">
+      <h2>📍 Location & Contact Information</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Address:</strong><br>
+            123 Legal Aid Drive<br>
+            Cedar Rapids, IA 52402
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong>Phone:</strong><br>
+            (319) 555-LEGAL (5342)
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>Email:</strong><br>
+            appointments@cedarlegal.org
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <strong>Website:</strong><br>
+            www.cedarrapidslegalaid.org
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eligibility & Requirements -->
+    <section class="detail-section">
+      <h2>✅ Eligibility & Requirements</h2>
+      <ul class="requirements-list">
+        <li>Must be a resident of Linn County, Iowa</li>
+        <li>Legal issue must fall within our practice areas</li>
+        <li>Valid photo ID required for appointment</li>
+        <li>Bring any relevant documentation related to your case</li>
+        <li>No income requirements - service is free to all qualifying residents</li>
+      </ul>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="detail-section">
+      <h2>🎯 What to Expect</h2>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h4>Before Your Appointment</h4>
+          <p>Gather all relevant documents, prepare a list of questions, and arrive 15 minutes early for check-in.</p>
+        </div>
+        <div class="detail-card">
+          <h4>During Your Consultation</h4>
+          <p>Meet with an experienced attorney who will review your situation and provide legal guidance and
+            options.</p>
+        </div>
+        <div class="detail-card">
+          <h4>After Your Appointment</h4>
+          <p>Receive written summary of advice and next steps. Follow-up appointments available if needed.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Confidentiality</h4>
+          <p>All consultations are completely confidential and protected by attorney-client privilege.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section class="detail-section">
+      <h2>⚖️ Practice Areas</h2>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h4>Housing Law</h4>
+          <p>Landlord-tenant disputes, eviction defense, housing discrimination, and habitability issues.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Family Law</h4>
+          <p>Divorce, custody, domestic violence protection, adoption, and child support matters.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Benefits & Public Assistance</h4>
+          <p>Social Security, SNAP, Medicaid, disability benefits, and other public assistance programs.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Consumer Protection</h4>
+          <p>Debt collection, bankruptcy alternatives, predatory lending, and consumer fraud cases.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Contact Info -->
+    <section class="detail-section">
+      <div class="emergency-notice">
+        ⚠️ For immediate legal emergencies or domestic violence situations, call 911 or the National Domestic Violence
+        Hotline at 1-800-799-7233
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="detail-actions">
+      <button class="btn-primary" onclick="bookAppointment()">Book This Appointment</button>
+      <button class="btn-secondary" onclick="contactProvider()">Contact Provider</button>
+      <button class="btn-secondary" onclick="window.history.back()">← Back to Services</button>
+    </div>
+  </div>
+</main>
+
+<!-- Related Services -->
+<section class="related-services" style="margin: 3rem auto; max-width: 1200px; padding: 0 2rem;">
+  <h2 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Related Services</h2>
+  <div class="service-grid">
+    <div class="service-preview">
+      <h3>Financial Counseling</h3>
+      <p>Free debt and budget counseling</p>
+      <span class="service-type">Appointment</span>
+      <a href="service-detail.html?id=financial-001" class="btn-secondary" style="margin-top: 1rem;">View Details</a>
+    </div>
+    <div class="service-preview">
+      <h3>Housing Assistance Program</h3>
+      <p>Emergency rent and utility assistance</p>
+      <span class="service-type">Walk-in</span>
+      <a href="service-detail.html?id=housing-001" class="btn-secondary" style="margin-top: 1rem;">View Details</a>
+    </div>
+    <div class="service-preview">
+      <h3>Family Support Group</h3>
+      <p>Weekly support meetings for families</p>
+      <span class="service-type">Group</span>
+      <a href="service-detail.html?id=group-001" class="btn-secondary" style="margin-top: 1rem;">View Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Need Immediate Help?</h3>
+      <p>📞 Crisis Hotline: 988</p>
+      <p>📞 Community Resources: 211</p>
+      <p>📞 Emergency: 911</p>
+    </div>
+    <div class="footer-section">
+      <h3>Service Hours</h3>
+      <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+      <p>Emergency consultations available</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script>
+  // Get service ID from URL parameters
+  function getServiceId() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id') || 'legal-001'; // Default service
+  }
+
+  // Mock data for different services
+  const serviceData = {
+    'legal-001': {
+      name: 'Free Legal Consultation',
+      provider: 'Cedar Rapids Legal Aid Society',
+      description: 'Free legal advice and consultation services for individuals and families facing housing, benefits, and family law issues. Our experienced attorneys provide comprehensive guidance and support at no cost to those who qualify.',
+      nextAvailable: 'Tuesday, September 24th at 2:00 PM',
+      duration: '60 minutes',
+      phone: '(319) 555-LEGAL (5342)',
+      email: 'appointments@cedarlegal.org',
+    },
+    'health-001': {
+      name: 'Community Health Clinic',
+      provider: 'Mercy Medical Center - Community Outreach',
+      description: 'Primary care, preventive care, and basic medical services for uninsured and underinsured patients. Comprehensive health services in a welcoming, culturally sensitive environment.',
+      nextAvailable: 'Available Today: 10:00 AM - 4:00 PM',
+      duration: '30-45 minutes',
+      phone: '(319) 555-HEALTH (4325)',
+      email: 'community@mercymedical.org',
+    },
+    'financial-001': {
+      name: 'Financial Planning & Debt Counseling',
+      provider: 'Consumer Credit Counseling Service',
+      description: 'Free budget counseling, debt management, and financial planning for individuals and families. Learn to manage money effectively and work toward financial stability.',
+      nextAvailable: 'Multiple slots this week',
+      duration: '90 minutes',
+      phone: '(319) 555-MONEY (6663)',
+      email: 'counseling@cccs-iowa.org',
+    },
+  };
+
+  // Load service data based on ID
+  function loadServiceData() {
+    const serviceId = getServiceId();
+    const service = serviceData[serviceId];
+
+    if (service) {
+      document.getElementById('serviceName').textContent = service.name;
+      document.getElementById('providerName').textContent = service.provider;
+      document.getElementById('serviceDescription').textContent = service.description;
+
+      // Update other dynamic elements
+      document.title = `${service.name} - Community Resource Support`;
+    }
+  }
+
+  // Action functions
+  function bookAppointment() {
+    const serviceId = getServiceId();
+    // This would normally integrate with a booking system
+    alert(
+      `Booking system would open here for service: ${serviceId}\n\nThis is a demo - in a real system, this would connect to the provider's scheduling system.`);
+  }
+
+  function contactProvider() {
+    const serviceId = getServiceId();
+    const service = serviceData[serviceId];
+    if (service && service.phone) {
+      alert(
+        `Contact Information:\n\nPhone: ${service.phone}\nEmail: ${service.email}\n\nIn a real system, this would open your phone app or email client.`);
+    }
+  }
+
+  // Initialize page
+  document.addEventListener('DOMContentLoaded', function() {
+    loadServiceData();
+    console.log('Service detail page loaded for:', getServiceId());
+  });
+</script>
+</body>
+</html>

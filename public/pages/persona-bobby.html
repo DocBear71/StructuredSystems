@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Coordination - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Volunteer Coordinator customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #8e44ad, #9b59b6);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .volunteer-focus .category-card {
+      border-left-color: #8e44ad;
+    }
+
+    .volunteer-priority {
+      border-left-color: #27ae60 !important;
+      background: linear-gradient(135deg, #f0fff0, #e8f8e8) !important;
+    }
+
+    .coordinator-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .coordinator-stats {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #8e44ad;
+    }
+
+    .volunteer-request {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .volunteer-request:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .request-urgent {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+    }
+
+    .volunteer-available {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+
+    .coordination-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .volunteer-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: #8e44ad;
+      color: white;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .skill-match {
+      background: #27ae60;
+    }
+
+    .availability-match {
+      background: #3498db;
+    }
+
+    .event-card {
+      background: white;
+      border: 1px solid #dee2e6;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .event-urgent {
+      border-left: 4px solid #e74c3c;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Volunteer Coordination Center</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Coordinator Tools</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Public Home</a>
+          <a href="persona-bobby.html">Coordination Dashboard</a>
+          <a href="#volunteer-management">Volunteer Management</a>
+          <a href="#request-management">Request Management</a>
+          <a href="#event-coordination">Event Coordination</a>
+          <a href="#communication">Communication Tools</a>
+          <a href="#scheduling">Scheduling System</a>
+          <a href="#impact-reports">Impact Reports</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">15</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search volunteers & requests..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Volunteer Coordination Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Volunteer Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#view-volunteers">View Volunteer Information</a></li>
+        <li><a href="#volunteer-availability">Check Availability</a></li>
+        <li><a href="#volunteer-skills">Skills & Capabilities</a></li>
+        <li><a href="#volunteer-scheduling">Schedule Volunteers</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Request Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#view-requests">View All Requests</a></li>
+        <li><a href="#add-requests">Add New Requests</a></li>
+        <li><a href="#edit-requests">Edit Request Information</a></li>
+        <li><a href="#delete-requests">Remove Requests</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Event Coordination</a>
+      <ul class="dropdown-menu">
+        <li><a href="#create-events">Create Community Events</a></li>
+        <li><a href="#event-posts">Make Event Posts</a></li>
+        <li><a href="#edit-events">Edit Event Information</a></li>
+        <li><a href="#volunteer-recruitment">Volunteer Recruitment</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Communication</a>
+      <ul class="dropdown-menu">
+        <li><a href="#message-volunteers">Message Volunteers</a></li>
+        <li><a href="#message-businesses">Contact Businesses</a></li>
+        <li><a href="#message-charities">Communicate with Charities</a></li>
+        <li><a href="#bulk-communications">Send Bulk Messages</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Task Assignment</a>
+      <ul class="dropdown-menu">
+        <li><a href="#assign-workers">Assign Workers to Tasks</a></li>
+        <li><a href="#schedule-workers">Schedule Worker/Volunteer</a></li>
+        <li><a href="#task-tracking">Track Task Completion</a></li>
+        <li><a href="#workload-balance">Balance Workloads</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">Impact Dashboard</a></li>
+  </ul>
+</nav>
+
+<!-- Volunteer Coordination Welcome -->
+<div class="persona-welcome">
+  <h2>🤝 Community Volunteer Coordination Hub</h2>
+  <p>Organize volunteers effectively, manage community requests, coordinate events, and maximize impact. Connect people who want to help with those who need assistance.</p>
+</div>
+
+<!-- Coordination Dashboard -->
+<div class="container">
+  <div class="coordinator-dashboard">
+    <div class="coordinator-stats">
+      <h3>👥 Volunteer Network</h3>
+      <p><strong>Active Volunteers:</strong> 247 registered<br>
+        <strong>Available Today:</strong> 34 volunteers<br>
+        <strong>This Week's Hours:</strong> 892 volunteer hours<br>
+        <strong>New Registrations:</strong> 12 this month</p>
+    </div>
+
+    <div class="coordinator-stats">
+      <h3>📋 Current Requests</h3>
+      <p><strong>Open Requests:</strong> 23 waiting assignment<br>
+        <strong>In Progress:</strong> 41 being worked<br>
+        <strong>Completed This Week:</strong> 67 requests<br>
+        <strong>Average Response Time:</strong> 2.3 days</p>
+    </div>
+
+    <div class="coordinator-stats">
+      <h3>🎉 Community Events</h3>
+      <p><strong>Upcoming Events:</strong> 5 events planned<br>
+        <strong>Volunteers Needed:</strong> 78 positions<br>
+        <strong>Event Responses:</strong> 156 sign-ups<br>
+        <strong>This Month's Events:</strong> 8 events completed</p>
+    </div>
+  </div>
+</div>
+
+<!-- Current Volunteer Coordination Activity -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Active Coordination Tasks</h2>
+
+  <div class="volunteer-request request-urgent">
+    <h4>
+      <span class="volunteer-badge">URGENT</span>
+      Emergency Food Distribution - This Weekend
+    </h4>
+    <p><strong>Location:</strong> Community Center Parking Lot<br>
+      <strong>Volunteers Needed:</strong> 15 people | <strong>Time:</strong> Saturday 8 AM - 2 PM<br>
+      <strong>Skills Needed:</strong> Heavy lifting, bilingual Spanish speakers, traffic direction<br>
+      <strong>Currently Assigned:</strong> 8 volunteers confirmed</p>
+    <div class="coordination-actions">
+      <button class="view-details-btn" style="background: #e74c3c;">Find More Volunteers</button>
+      <button class="view-details-btn" style="background: #3498db;">Message Volunteers</button>
+      <button class="view-details-btn" style="background: #f39c12;">Update Requirements</button>
+    </div>
+  </div>
+
+  <div class="volunteer-available">
+    <h4>
+      <span class="volunteer-badge skill-match">SKILLS MATCH</span>
+      <span class="volunteer-badge availability-match">AVAILABLE</span>
+      Landscaping Help Request - Martinez Family
+    </h4>
+    <p><strong>Request:</strong> Elderly couple needs yard cleanup after storm<br>
+      <strong>Skills Needed:</strong> Landscaping, debris removal | <strong>Time:</strong> Flexible this week<br>
+      <strong>Perfect Match:</strong> James (landscaper) available Tuesday & Thursday<br>
+      <strong>Status:</strong> Ready to assign - waiting for final confirmation</p>
+    <div class="coordination-actions">
+      <button class="view-details-btn" style="background: #27ae60;">Confirm Assignment</button>
+      <button class="view-details-btn" style="background: #3498db;">Contact James</button>
+      <button class="view-details-btn" style="background: #95a5a6;">View Request Details</button>
+    </div>
+  </div>
+
+  <div class="volunteer-request">
+    <h4>
+      <span class="volunteer-badge">COMMUNICATION</span>
+      Weekly Volunteer Newsletter & Event Updates
+    </h4>
+    <p><strong>Task:</strong> Send weekly updates to 247 volunteers about upcoming opportunities<br>
+      <strong>Content:</strong> 5 new requests, 3 upcoming events, volunteer spotlight feature<br>
+      <strong>Recipients:</strong> All active volunteers + 89 on interest list<br>
+      <strong>Status:</strong> Draft ready for review and sending</p>
+    <div class="coordination-actions">
+      <button class="view-details-btn" style="background: #8e44ad;">Review Draft</button>
+      <button class="view-details-btn" style="background: #27ae60;">Send Newsletter</button>
+      <button class="view-details-btn" style="background: #f39c12;">Edit Content</button>
+    </div>
+  </div>
+</div>
+
+<!-- Community Event Planning -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Upcoming Community Events</h2>
+
+  <div class="event-card event-urgent">
+    <h3>🍂 Fall Community Resource Fair - October 15th</h3>
+    <p><strong>Purpose:</strong> Connect community with available services and volunteer opportunities<br>
+      <strong>Location:</strong> Cedar Rapids Public Library - Main Branch<br>
+      <strong>Expected Attendance:</strong> 300-400 community members<br>
+      <strong>Volunteers Needed:</strong> 25 positions | <strong>Signed Up:</strong> 18 volunteers<br>
+      <strong>Coordinator Notes:</strong> Still need setup crew (5 people) and bilingual interpreters (2 people)</p>
+    <div class="coordination-actions">
+      <button class="view-details-btn" style="background: #e74c3c;">Recruit More Volunteers</button>
+      <button class="view-details-btn" style="background: #3498db;">Event Details</button>
+      <button class="view-details-btn" style="background: #8e44ad;">Create Post</button>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <h3>🎄 Holiday Toy Drive Coordination - December</h3>
+    <p><strong>Planning Phase:</strong> Early coordination for annual toy drive<br>
+      <strong>Goal:</strong> Serve 150 families with children ages 0-17<br>
+      <strong>Volunteer Roles:</strong> Collection, sorting, wrapping, distribution coordination<br>
+      <strong>Partnership:</strong> Working with Salvation Army and local businesses<br>
+      <strong>Timeline:</strong> Recruitment starts next month</p>
+    <div class="coordination-actions">
+      <button class="view-details-btn">Plan Event</button>
+      <button class="view-details-btn" style="background: #27ae60;">Partner Outreach</button>
+    </div>
+  </div>
+</div>
+
+<!-- Volunteer Coordinator Quick Access -->
+<div class="quick-access volunteer-focus">
+  <div class="quick-access-header">
+    <h2>Volunteer Coordination Tools</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Emergency Volunteer Call</button>
+      <button class="btn-secondary">Mass Communication</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card volunteer-priority" data-count="247">
+      <h3>View Volunteer Information & Availability</h3>
+      <p>Access volunteer profiles, skills, schedules, and coordinate assignments effectively</p>
+      <a href="#view-volunteers" class="category-link">Manage Volunteers →</a>
+    </div>
+
+    <div class="category-card volunteer-priority" data-count="64">
+      <h3>View & Manage Community Requests</h3>
+      <p>Review requests from community, businesses, and charities needing volunteer assistance</p>
+      <a href="#view-requests" class="category-link">Manage Requests →</a>
+    </div>
+
+    <div class="category-card" data-count="156">
+      <h3>Communication with All Stakeholders</h3>
+      <p>Message volunteers, coordinate with businesses, communicate with charities and organizations</p>
+      <a href="#message-volunteers" class="category-link">Send Messages →</a>
+    </div>
+
+    <div class="category-card" data-count="89">
+      <h3>Edit & Add Request Information</h3>
+      <p>Update request details, add new community needs, ensure accurate information for volunteers</p>
+      <a href="#edit-requests" class="category-link">Edit Requests →</a>
+    </div>
+
+    <div class="category-card" data-count="34">
+      <h3>Schedule & Assign Workers to Tasks</h3>
+      <p>Match volunteer skills with needs, coordinate schedules, assign workers to specific locations</p>
+      <a href="#assign-workers" class="category-link">Assign Tasks →</a>
+    </div>
+
+    <div class="category-card" data-count="12">
+      <h3>Create Community Event Posts</h3>
+      <p>Make advertisements for events, recruit volunteers, organize resource fairs and community gatherings</p>
+      <a href="#create-events" class="category-link">Create Events →</a>
+    </div>
+
+    <div class="category-card" data-count="5">
+      <h3>Delete & Remove Outdated Information</h3>
+      <p>Remove completed requests, delete outdated events, maintain current volunteer opportunities</p>
+      <a href="#delete-requests" class="category-link">Clean Up Data →</a>
+    </div>
+
+    <div class="category-card" data-count="892">
+      <h3>Track Community Impact & Volunteer Hours</h3>
+      <p>Monitor volunteer hours, measure community impact, generate reports for stakeholders</p>
+      <a href="#impact-reports" class="category-link">View Impact →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Volunteer Coordination Summary -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>This Week's Coordination Impact</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Volunteer Assignments</h3>
+        <div class="service-type">Active</div>
+        <p><strong>Completed Assignments:</strong> 67 requests fulfilled<br>
+          <strong>Active Assignments:</strong> 41 in progress<br>
+          <strong>Success Rate:</strong> 94% completion rate</p>
+        <a href="#" class="view-details-btn">View Assignments</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Community Events</h3>
+        <div class="service-type" style="background: #8e44ad;">Planning</div>
+        <p><strong>Events This Month:</strong> 8 events coordinated<br>
+          <strong>Volunteer Participation:</strong> 156 volunteer positions filled<br>
+          <strong>Community Reach:</strong> 1,200+ people served</p>
+        <a href="#" class="view-details-btn">Event Reports</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Volunteer Network Growth</h3>
+        <div class="service-type" style="background: #27ae60;">Growing</div>
+        <p><strong>New Volunteers:</strong> 12 registered this month<br>
+          <strong>Retention Rate:</strong> 87% active volunteers<br>
+          <strong>Skills Diversity:</strong> 23 different skill categories</p>
+        <a href="#" class="view-details-btn">Network Analysis</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Volunteer Coordination</h3>
+      <ul>
+        <li><a href="#">Volunteer Management</a></li>
+        <li><a href="#">Request Coordination</a></li>
+        <li><a href="#">Event Planning</a></li>
+        <li><a href="#">Task Assignment</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Communication Tools</h3>
+      <ul>
+        <li><a href="#">Volunteer Messaging</a></li>
+        <li><a href="#">Business Outreach</a></li>
+        <li><a href="#">Community Updates</a></li>
+        <li><a href="#">Event Promotion</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Community Impact</h3>
+      <ul>
+        <li><a href="#">Impact Reports</a></li>
+        <li><a href="#">Volunteer Hours</a></li>
+        <li><a href="#">Community Reach</a></li>
+        <li><a href="#">Success Stories</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Coordinating Community Volunteers for Maximum Impact</p>
+  </div>
+</footer>
+</body>
+</html>

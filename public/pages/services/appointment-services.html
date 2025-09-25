@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment-Based Services - Community Resource Support</title>
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+<!-- Header Template E (simplified for inner pages) -->
+<header class="main-header">
+  <!-- Page Title (E) Left Side -->
+  <h1 class="page-title">Appointment-Based Services</h1>
+  <!-- Right side container -->
+  <div class="header-right">
+    <!-- Login/Settings (A) -->
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Menu</button>
+        <div class="dropdown-content">
+          <a href="../../dashboard.html">Dashboard</a>
+          <a href="../login.html">Login</a>
+          <a href="../404.html">404 Test</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">3</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search appointment services..." class="search-input" id="serviceSearch">
+      <button class="search-btn" onclick="filterServices()">Search</button>
+    </div>
+  </div>
+
+
+</header>
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb">
+  <a href="../../dashboard.html">Home</a> >
+  <a href="#services">Services</a> >
+  <span>Appointment Services</span>
+</nav>
+
+<!-- Filter Section -->
+<div class="filter-section">
+  <h3>Filter Services</h3>
+  <div class="filter-controls">
+    <select id="categoryFilter" onchange="filterServices()">
+      <option value="all">All Categories</option>
+      <option value="legal">Legal Services</option>
+      <option value="health">Healthcare</option>
+      <option value="financial">Financial Counseling</option>
+      <option value="therapy">Therapy & Counseling</option>
+    </select>
+
+    <select id="availabilityFilter" onchange="filterServices()">
+      <option value="all">All Availability</option>
+      <option value="today">Available Today</option>
+      <option value="this-week">This Week</option>
+      <option value="emergency">Emergency Slots</option>
+    </select>
+
+    <button onclick="clearFilters()" class="clear-filters-btn">Clear Filters</button>
+  </div>
+</div>
+
+<!-- Service Listings -->
+<main class="service-listings">
+  <div class="results-header">
+    <h2>Available Appointment Services</h2>
+    <span class="results-count" id="resultsCount">12 services found</span>
+  </div>
+
+  <!-- Service List Container -->
+  <div class="service-list" id="serviceList">
+
+    <!-- Legal Services -->
+    <div class="service-item" data-category="legal" data-availability="this-week"
+         onclick="viewServiceDetail('legal-001')">
+      <div class="service-header">
+        <h3>Free Legal Consultation</h3>
+        <span class="service-status available">Available</span>
+      </div>
+      <div class="service-info">
+        <p class="provider-name">Cedar Rapids Legal Aid Society</p>
+        <p class="service-description">Free legal advice for housing, benefits, and family law issues. No income
+          requirements.</p>
+
+        <div class="service-details">
+          <div class="detail-item">
+            <span class="icon">📅</span>
+            <span>Next Available: Tuesday, Sept 24th at 2:00 PM</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📍</span>
+            <span>Downtown Legal Center</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">⏱️</span>
+            <span>60 minutes</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-actions">
+        <button class="btn-primary">Book Appointment</button>
+        <button class="btn-secondary" onclick="event.stopPropagation(); viewServiceDetail('legal-001')">View Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Healthcare Services -->
+    <div class="service-item" data-category="health" data-availability="today"
+         onclick="viewServiceDetail('health-001')">
+      <div class="service-header">
+        <h3>Community Health Clinic</h3>
+        <span class="service-status urgent">Same Day</span>
+      </div>
+      <div class="service-info">
+        <p class="provider-name">Mercy Medical Center - Community Outreach</p>
+        <p class="service-description">Primary care, preventive care, and basic medical services for uninsured
+          patients.</p>
+
+        <div class="service-details">
+          <div class="detail-item">
+            <span class="icon">📅</span>
+            <span>Available Today: 10:00 AM - 4:00 PM</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📍</span>
+            <span>Community Health Center</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">⏱️</span>
+            <span>30-45 minutes</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-actions">
+        <button class="btn-primary">Book Appointment</button>
+        <button class="btn-secondary" onclick="event.stopPropagation(); viewServiceDetail('health-001')">View Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Financial Counseling -->
+    <div class="service-item" data-category="financial" data-availability="this-week"
+         onclick="viewServiceDetail('financial-001')">
+      <div class="service-header">
+        <h3>Financial Planning & Debt Counseling</h3>
+        <span class="service-status available">Available</span>
+      </div>
+      <div class="service-info">
+        <p class="provider-name">Consumer Credit Counseling Service</p>
+        <p class="service-description">Free budget counseling, debt management, and financial planning for individuals
+          and families.</p>
+
+        <div class="service-details">
+          <div class="detail-item">
+            <span class="icon">📅</span>
+            <span>Multiple slots this week</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📍</span>
+            <span>Virtual or In-Person</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">⏱️</span>
+            <span>90 minutes</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-actions">
+        <button class="btn-primary">Book Appointment</button>
+        <button class="btn-secondary" onclick="event.stopPropagation(); viewServiceDetail('financial-001')">View
+          Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Mental Health Services -->
+    <div class="service-item" data-category="therapy" data-availability="emergency"
+         onclick="viewServiceDetail('therapy-001')">
+      <div class="service-header">
+        <h3>Crisis Counseling & Support</h3>
+        <span class="service-status emergency">Emergency</span>
+      </div>
+      <div class="service-info">
+        <p class="provider-name">Community Mental Health Center</p>
+        <p class="service-description">Immediate crisis intervention and ongoing mental health support services.</p>
+
+        <div class="service-details">
+          <div class="detail-item">
+            <span class="icon">📅</span>
+            <span>24/7 Crisis Line - Appointments Available</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📍</span>
+            <span>Multiple Locations</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">⏱️</span>
+            <span>Variable</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-actions">
+        <button class="btn-emergency">Emergency Contact</button>
+        <button class="btn-secondary" onclick="event.stopPropagation(); viewServiceDetail('therapy-001')">View Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Additional services would go here -->
+    <div class="service-item" data-category="legal" data-availability="this-week"
+         onclick="viewServiceDetail('legal-002')">
+      <div class="service-header">
+        <h3>Immigration Law Assistance</h3>
+        <span class="service-status available">Available</span>
+      </div>
+      <div class="service-info">
+        <p class="provider-name">Iowa Immigration Law Center</p>
+        <p class="service-description">Legal assistance with immigration matters, citizenship applications, and document
+          preparation.</p>
+
+        <div class="service-details">
+          <div class="detail-item">
+            <span class="icon">📅</span>
+            <span>Wednesday & Friday appointments</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">📍</span>
+            <span>Downtown Office</span>
+          </div>
+          <div class="detail-item">
+            <span class="icon">⏱️</span>
+            <span>2 hours</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-actions">
+        <button class="btn-primary">Book Appointment</button>
+        <button class="btn-secondary" onclick="event.stopPropagation(); viewServiceDetail('legal-002')">View Details
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button class="page-btn" disabled>← Previous</button>
+    <span class="page-info">Page 1 of 3</span>
+    <button class="page-btn">Next →</button>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Need Immediate Help?</h3>
+      <p>📞 Crisis Hotline: 988</p>
+      <p>📞 Community Resources: 211</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+<script src="../../js/services.js"></script>
+<script>
+  // Basic filtering functionality
+  function filterServices() {
+    const searchTerm = document.getElementById('serviceSearch').value.toLowerCase();
+    const categoryFilter = document.getElementById('categoryFilter').value;
+    const availabilityFilter = document.getElementById('availabilityFilter').value;
+    const serviceItems = document.querySelectorAll('.service-item');
+    let visibleCount = 0;
+
+    serviceItems.forEach(item => {
+      const matchesSearch = item.textContent.toLowerCase().includes(searchTerm);
+      const matchesCategory = categoryFilter === 'all' || item.dataset.category === categoryFilter;
+      const matchesAvailability = availabilityFilter === 'all' || item.dataset.availability === availabilityFilter;
+
+      if (matchesSearch && matchesCategory && matchesAvailability) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    document.getElementById('resultsCount').textContent = `${visibleCount} services found`;
+  }
+
+  function clearFilters() {
+    document.getElementById('serviceSearch').value = '';
+    document.getElementById('categoryFilter').value = 'all';
+    document.getElementById('availabilityFilter').value = 'all';
+    filterServices();
+  }
+
+  // Navigate to detailed view
+  function viewServiceDetail(serviceId) {
+    // This would normally navigate to a detailed service page
+    // For now, we'll redirect to our detail template
+    window.location.href = `service-detail.html?id=${serviceId}`;
+  }
+
+  // Initialize page
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add any initialization code here
+    console.log('Appointment Services page loaded');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Pete - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Pete-specific customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .healthcare-focus .category-card {
+      border-left-color: #e74c3c;
+    }
+
+    .healthcare-priority {
+      border-left-color: #8e44ad !important;
+      background: linear-gradient(135deg, #f8f5ff, #f0e6ff) !important;
+    }
+
+    .appointment-calendar {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .next-appointment {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .health-status {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .status-card {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Welcome, Pete</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Pete's Account</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="persona-pete.html">Health Dashboard</a>
+          <a href="#appointments">My Appointments</a>
+          <a href="#medications">Medications</a>
+          <a href="#financial-aid">Financial Aid</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">7</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search healthcare services..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Healthcare-focused Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Healthcare Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?type=medical">Medical Appointments</a></li>
+        <li><a href="services/appointment-services.html?type=dental">Dental Care</a></li>
+        <li><a href="services/appointment-services.html?type=mental">Mental Health</a></li>
+        <li><a href="services/appointment-services.html?type=specialist">Specialists</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Financial Aid</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?type=insurance">Insurance Help</a></li>
+        <li><a href="services/appointment-services.html?type=financial">Financial Assistance</a></li>
+        <li><a href="services/appointment-services.html?type=pharmacy">Medication Assistance</a></li>
+        <li><a href="services/appointment-services.html?type=benefits">Healthcare Benefits</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Navigation Help</a>
+      <ul class="dropdown-menu">
+        <li><a href="services/appointment-services.html?type=navigation">Healthcare Navigation</a></li>
+        <li><a href="services/appointment-services.html?type=coordination">Care Coordination</a></li>
+        <li><a href="services/group-meetings.html?type=patient">Patient Support Groups</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">My Health Records</a></li>
+  </ul>
+</nav>
+
+<!-- Persona Welcome Section -->
+<div class="persona-welcome">
+  <h2>🏥 Healthcare Management Center</h2>
+  <p>Manage your complex healthcare needs, find affordable care, and maintain your independence. All your health resources in one place.</p>
+</div>
+
+<!-- Pete's Health Status Overview -->
+<div class="container">
+  <div class="appointment-calendar">
+    <h2 style="color: #2c3e50; margin-bottom: 1rem;">Your Healthcare Overview</h2>
+
+    <div class="next-appointment">
+      <h3>🗓️ Next Appointment</h3>
+      <p><strong>Cardiology Follow-up</strong><br>
+        Dr. Martinez - Thursday, 2:30 PM<br>
+        Community Health Center, Room 205</p>
+      <button class="view-details-btn" style="background: rgba(255,255,255,0.2); margin-top: 1rem;">View Details</button>
+    </div>
+
+    <div class="health-status">
+      <div class="status-card">
+        <h4>📋 This Week</h4>
+        <p>3 appointments<br>2 medication refills<br>1 lab result pending</p>
+      </div>
+      <div class="status-card">
+        <h4>💊 Medications</h4>
+        <p>5 active prescriptions<br>2 need refills soon<br>1 prior authorization needed</p>
+      </div>
+      <div class="status-card">
+        <h4>💰 Financial</h4>
+        <p>Insurance copay: $45<br>Pending assistance: $230<br>Next benefits review: March 15</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pete's Quick Access - Healthcare Focused -->
+<div class="quick-access healthcare-focus">
+  <div class="quick-access-header">
+    <h2>Essential Healthcare Services</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Schedule Appointment</button>
+      <button class="btn-secondary">Medication Refill</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card healthcare-priority" data-count="25">
+      <h3>Medical Appointments</h3>
+      <p>Primary care, specialists, and routine checkups around your work schedule</p>
+      <a href="services/appointment-services.html?type=medical" class="category-link">Schedule →</a>
+    </div>
+
+    <div class="category-card healthcare-priority" data-count="12">
+      <h3>Financial Aid for Care</h3>
+      <p>Insurance help, medication assistance, and healthcare cost reduction programs</p>
+      <a href="services/appointment-services.html?type=financial" class="category-link">Get Aid →</a>
+    </div>
+
+    <div class="category-card" data-count="8">
+      <h3>Healthcare Navigation</h3>
+      <p>Clear guidance through complex healthcare systems and coordination support</p>
+      <a href="services/appointment-services.html?type=navigation" class="category-link">Get Help →</a>
+    </div>
+
+    <div class="category-card" data-count="18">
+      <h3>Mental Health Support</h3>
+      <p>Counseling, stress management, and mental health services for chronic conditions</p>
+      <a href="services/appointment-services.html?type=mental" class="category-link">Find Support →</a>
+    </div>
+
+    <div class="category-card" data-count="6">
+      <h3>Care Coordination</h3>
+      <p>Help managing multiple doctors, appointments, and treatment plans</p>
+      <a href="services/appointment-services.html?type=coordination" class="category-link">Coordinate →</a>
+    </div>
+
+    <div class="category-card" data-count="15">
+      <h3>Patient Support Groups</h3>
+      <p>Connect with others managing similar conditions and share experiences</p>
+      <a href="services/group-meetings.html?type=patient" class="category-link">Join Group →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Pete's Current Health Management -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Your Health Management Tasks</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Prior Authorization</h3>
+        <div class="service-type" style="background: #e74c3c;">Urgent</div>
+        <p><strong>Medication:</strong> Heart medication refill<br>
+          <strong>Status:</strong> Awaiting insurance approval<br>
+          <strong>Submitted:</strong> 5 days ago</p>
+        <a href="#" class="view-details-btn">Check Status</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Financial Assistance Application</h3>
+        <div class="service-type" style="background: #f39c12;">In Progress</div>
+        <p><strong>Program:</strong> Hospital charity care<br>
+          <strong>Amount:</strong> $1,200 outstanding bill<br>
+          <strong>Next Step:</strong> Submit income verification</p>
+        <a href="#" class="view-details-btn">Continue Application</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Lab Results</h3>
+        <div class="service-type" style="background: #3498db;">Available</div>
+        <p><strong>Test:</strong> Quarterly blood work<br>
+          <strong>Date:</strong> Last Tuesday<br>
+          <strong>Follow-up:</strong> Discuss with Dr. Martinez Thursday</p>
+        <a href="#" class="view-details-btn">View Results</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Healthcare Services</h3>
+      <ul>
+        <li><a href="#">Medical Care</a></li>
+        <li><a href="#">Dental Services</a></li>
+        <li><a href="#">Mental Health</a></li>
+        <li><a href="#">Specialist Care</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Your Care</h3>
+      <ul>
+        <li><a href="#">Appointments</a></li>
+        <li><a href="#">Medications</a></li>
+        <li><a href="#">Lab Results</a></li>
+        <li><a href="#">Care Plan</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Financial Support</h3>
+      <ul>
+        <li><a href="#">Insurance Help</a></li>
+        <li><a href="#">Financial Aid</a></li>
+        <li><a href="#">Medication Assistance</a></li>
+        <li><a href="#">Benefits Navigation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Supporting Your Health and Independence</p>
+  </div>
+</footer>
+</body>
+</html>

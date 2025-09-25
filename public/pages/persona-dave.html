@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Dave - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Dave-specific customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #f39c12, #e67e22);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .transport-focus .category-card {
+      border-left-color: #f39c12;
+    }
+
+    .transport-priority {
+      border-left-color: #27ae60 !important;
+      background: linear-gradient(135deg, #f0fff0, #e8f8e8) !important;
+    }
+
+    .driver-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .driver-stats {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #f39c12;
+    }
+
+    .transport-request {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    .urgent-transport {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    .route-map {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border: 1px solid #dee2e6;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Welcome, Dave</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Dave's Driver Portal</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="persona-dave.html">Driver Dashboard</a>
+          <a href="#schedule">My Driving Schedule</a>
+          <a href="#requests">Transport Requests</a>
+          <a href="#mileage">Track Miles</a>
+          <a href="#routes">Route Planning</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">6</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search transport requests..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Transportation-focused Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Route Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#routing-system">Routing System</a></li>
+        <li><a href="#route-optimization">Route Optimization</a></li>
+        <li><a href="#traffic-updates">Traffic Updates</a></li>
+        <li><a href="#destination-lookup">Destination Lookup</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Request Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#user-requests">User Requests</a></li>
+        <li><a href="#accept-requests">Accept Requests</a></li>
+        <li><a href="#request-history">Request History</a></li>
+        <li><a href="#emergency-transport">Emergency Transport</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Schedule & Availability</a>
+      <ul class="dropdown-menu">
+        <li><a href="#scheduling-system">Scheduling System</a></li>
+        <li><a href="#availability">Set Availability</a></li>
+        <li><a href="#free-time">Manage Free Time</a></li>
+        <li><a href="#calendar">Calendar View</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Driver Registration</a>
+      <ul class="dropdown-menu">
+        <li><a href="#register-help">Register for Help</a></li>
+        <li><a href="#driver-profile">Driver Profile</a></li>
+        <li><a href="#vehicle-info">Vehicle Information</a></li>
+        <li><a href="#insurance">Insurance Verification</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#track-miles">Track Miles</a></li>
+  </ul>
+</nav>
+
+<!-- Persona Welcome Section -->
+<div class="persona-welcome">
+  <h2>🚗 Transportation Volunteer Hub</h2>
+  <p>Help people get where they need to go efficiently during your free time. Manage routes, track miles, and make transportation accessible for everyone in need.</p>
+</div>
+
+<!-- Dave's Driving Stats -->
+<div class="container">
+  <div class="driver-dashboard">
+    <div class="driver-stats">
+      <h3>🛣️ This Month's Impact</h3>
+      <p><strong>Miles Driven:</strong> 347 miles<br>
+        <strong>People Transported:</strong> 23 individuals<br>
+        <strong>Volunteer Hours:</strong> 28 hours<br>
+        <strong>Average Rating:</strong> ⭐ 5.0/5.0</p>
+    </div>
+
+    <div class="driver-stats">
+      <h3>⏰ Today's Schedule</h3>
+      <p><strong>3:00 PM:</strong> Medical transport - Mrs. Johnson to Cedar Rapids Hospital<br>
+        <strong>5:30 PM:</strong> Grocery pickup - Mr. Martinez from Hy-Vee<br>
+        <strong>Status:</strong> Available after 7:00 PM</p>
+    </div>
+
+    <div class="driver-stats">
+      <h3>📍 Recent Routes</h3>
+      <p><strong>Most Efficient:</strong> Downtown to UIHC - 35 min<br>
+        <strong>Miles This Week:</strong> 89 miles<br>
+        <strong>Favorite Route:</strong> Community Center loop</p>
+    </div>
+  </div>
+</div>
+
+<!-- Current Transport Requests -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Available Transport Requests</h2>
+
+  <div class="transport-request urgent-transport">
+    <h4>🚨 Urgent Request - Medical Appointment</h4>
+    <p><strong>Pickup:</strong> 1425 Oak Street | <strong>Destination:</strong> UnityPoint Clinic<br>
+      <strong>Time Needed:</strong> Tomorrow 10:30 AM | <strong>Duration:</strong> ~2 hours<br>
+      <strong>Special Notes:</strong> Wheelchair accessible vehicle preferred</p>
+    <div class="route-map">
+      <strong>📍 Route Preview:</strong> 8.2 miles | Estimated 22 minutes | Light traffic expected
+    </div>
+    <button class="view-details-btn" style="background: #e74c3c;">Accept Request</button>
+    <button class="view-details-btn" style="background: #3498db; margin-left: 0.5rem;">View Route</button>
+  </div>
+
+  <div class="transport-request">
+    <h4>🛒 Grocery Shopping Trip</h4>
+    <p><strong>Pickup:</strong> Kirkwood Senior Housing | <strong>Destination:</strong> Walmart Supercenter<br>
+      <strong>Time Requested:</strong> This weekend, morning preferred | <strong>Duration:</strong> ~90 minutes<br>
+      <strong>Special Notes:</strong> Help loading groceries appreciated</p>
+    <div class="route-map">
+      <strong>📍 Route Preview:</strong> 12.1 miles | Estimated 28 minutes | Moderate traffic
+    </div>
+    <button class="view-details-btn">Accept Request</button>
+    <button class="view-details-btn" style="background: #3498db; margin-left: 0.5rem;">View Route</button>
+  </div>
+</div>
+
+<!-- Dave's Quick Access - Transportation Management Focused -->
+<div class="quick-access transport-focus">
+  <div class="quick-access-header">
+    <h2>Transportation Volunteer Tools</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Set Availability</button>
+      <button class="btn-secondary">Plan Route</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card transport-priority" data-count="18">
+      <h3>Routing System</h3>
+      <p>Efficient route planning, traffic optimization, and destination mapping</p>
+      <a href="#routing-system" class="category-link">Plan Routes →</a>
+    </div>
+
+    <div class="category-card transport-priority" data-count="12">
+      <h3>User Transport Requests</h3>
+      <p>View and accept transportation requests from community members in need</p>
+      <a href="#user-requests" class="category-link">View Requests →</a>
+    </div>
+
+    <div class="category-card" data-count="8">
+      <h3>Scheduling System</h3>
+      <p>Manage your availability and coordinate volunteer driving schedule</p>
+      <a href="#scheduling-system" class="category-link">Manage Schedule →</a>
+    </div>
+
+    <div class="category-card" data-count="25">
+      <h3>Register for Transport Help</h3>
+      <p>Sign up as a volunteer driver and register your vehicle for community service</p>
+      <a href="#register-help" class="category-link">Register →</a>
+    </div>
+
+    <div class="category-card" data-count="15">
+      <h3>Track Miles Driven</h3>
+      <p>Monitor volunteer miles for tax deduction and impact reporting</p>
+      <a href="#track-miles" class="category-link">Track Miles →</a>
+    </div>
+
+    <div class="category-card" data-count="6">
+      <h3>Free Time Management</h3>
+      <p>Set when you're available to help and only receive requests during your free time</p>
+      <a href="#free-time" class="category-link">Set Availability →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Dave's Transport History -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Recent Transportation Services</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Medical Transport Completed</h3>
+        <div class="service-type">Completed</div>
+        <p><strong>Route:</strong> Home → UIHC → Home<br>
+          <strong>Distance:</strong> 47 miles<br>
+          <strong>Client Feedback:</strong> "Dave was so helpful and patient!"</p>
+        <a href="#" class="view-details-btn">View Details</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Grocery Shopping Assistance</h3>
+        <div class="service-type">Completed</div>
+        <p><strong>Route:</strong> Senior Housing → Hy-Vee → Home<br>
+          <strong>Distance:</strong> 18 miles<br>
+          <strong>Extra Help:</strong> Carried groceries to apartment</p>
+        <a href="#" class="view-details-btn">View Details</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Weekly Miles Summary</h3>
+        <div class="service-type" style="background: #f39c12;">This Week</div>
+        <p><strong>Total Miles:</strong> 89 volunteer miles<br>
+          <strong>Tax Deduction:</strong> $48.23 (IRS rate)<br>
+          <strong>CO2 Saved:</strong> Estimated 156 lbs by shared transport</p>
+        <a href="#" class="view-details-btn">Download Report</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Driver Tools</h3>
+      <ul>
+        <li><a href="#">Route Planning</a></li>
+        <li><a href="#">Request Management</a></li>
+        <li><a href="#">Schedule Coordination</a></li>
+        <li><a href="#">Mileage Tracking</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Your Service</h3>
+      <ul>
+        <li><a href="#">Current Requests</a></li>
+        <li><a href="#">Transport History</a></li>
+        <li><a href="#">Client Feedback</a></li>
+        <li><a href="#">Volunteer Hours</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Driver Coordinator</a></li>
+        <li><a href="#">Vehicle Support</a></li>
+        <li><a href="#">Safety Training</a></li>
+        <li><a href="#">Insurance Info</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Thank You for Keeping Our Community Connected</p>
+  </div>
+</footer>
+</body>
+</html>

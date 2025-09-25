@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome John - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* John-specific customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #34495e, #2c3e50);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .admin-focus .category-card {
+      border-left-color: #34495e;
+    }
+
+    .admin-priority {
+      border-left-color: #3498db !important;
+      background: linear-gradient(135deg, #f0f9ff, #e6f3ff) !important;
+    }
+
+    .admin-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .admin-stats {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #34495e;
+    }
+
+    .service-item {
+      background: white;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .service-item:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .service-status {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-left: 1rem;
+    }
+
+    .status-active {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-inactive {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .action-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn-edit {
+      background: #3498db;
+      color: white;
+    }
+
+    .btn-edit:hover {
+      background: #2980b9;
+    }
+
+    .btn-deactivate {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .btn-deactivate:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Welcome, John</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">John's Admin Portal</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="persona-john.html">Service Management</a>
+          <a href="#services">All Services</a>
+          <a href="#add-service">Add New Service</a>
+          <a href="#external-systems">External Systems</a>
+          <a href="#client-access">Client Access</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">9</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search services..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Admin-focused Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Service Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#list-services">List Available Services</a></li>
+        <li><a href="#add-service">Add New Service</a></li>
+        <li><a href="#edit-services">Edit Services</a></li>
+        <li><a href="#deactivate-services">Deactivate Services</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Client Access Controls</a>
+      <ul class="dropdown-menu">
+        <li><a href="#client-permissions">Client Permissions</a></li>
+        <li><a href="#access-levels">Access Levels</a></li>
+        <li><a href="#user-restrictions">User Restrictions</a></li>
+        <li><a href="#client-support">Client Support</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">External Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="#outside-network">Outside Network Services</a></li>
+        <li><a href="#application-help">Application Assistance</a></li>
+        <li><a href="#system-integration">System Integration</a></li>
+        <li><a href="#referral-tracking">Referral Tracking</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">Service Reports</a></li>
+  </ul>
+</nav>
+
+<!-- Persona Welcome Section -->
+<div class="persona-welcome">
+  <h2>📋 Service Administration Center</h2>
+  <p>Manage all available services, control client access, and help people find the resources they need both within our network and from external organizations.</p>
+</div>
+
+<!-- John's Admin Stats -->
+<div class="container">
+  <div class="admin-dashboard">
+    <div class="admin-stats">
+      <h3>📊 Service Overview</h3>
+      <p><strong>Total Services Listed:</strong> 147 services<br>
+        <strong>Active Services:</strong> 132 available<br>
+        <strong>External Referrals:</strong> 89 outside network<br>
+        <strong>Weekly Updates:</strong> 23 service changes</p>
+    </div>
+
+    <div class="admin-stats">
+      <h3>👥 Client Activity</h3>
+      <p><strong>Active Users:</strong> 1,247 clients<br>
+        <strong>New This Week:</strong> 18 registrations<br>
+        <strong>Service Requests:</strong> 156 this month<br>
+        <strong>Access Issues:</strong> 3 pending</p>
+    </div>
+
+    <div class="admin-stats">
+      <h3>🔗 External Systems</h3>
+      <p><strong>Partner Organizations:</strong> 34 connections<br>
+        <strong>API Integrations:</strong> 12 systems<br>
+        <strong>Referrals This Month:</strong> 78 clients helped<br>
+        <strong>System Status:</strong> All operational</p>
+    </div>
+  </div>
+</div>
+
+<!-- Recent Service Management Activity -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Recent Service Updates</h2>
+
+  <div class="service-item">
+    <h4>Community Food Bank - Emergency Food Assistance
+      <span class="service-status status-active">Active</span>
+    </h4>
+    <p><strong>Location:</strong> 1520 1st Ave E, Cedar Rapids | <strong>Hours:</strong> M-F 9AM-4PM<br>
+      <strong>Capacity:</strong> 45 families/week | <strong>Last Updated:</strong> 2 hours ago<br>
+      <strong>External Link:</strong> <a href="#">Apply at communityfoodbank.org</a></p>
+    <div class="quick-actions">
+      <button class="action-btn btn-edit">Edit Service</button>
+      <button class="action-btn" style="background: #27ae60; color: white;">Client Guide</button>
+      <button class="action-btn" style="background: #f39c12; color: white;">Update Hours</button>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <h4>Salvation Army Rental Assistance Program
+      <span class="service-status status-pending">Pending Review</span>
+    </h4>
+    <p><strong>Service Type:</strong> Financial Assistance | <strong>Coverage:</strong> Up to $800/month<br>
+      <strong>Requirements:</strong> Income verification, eviction notice | <strong>Wait Time:</strong> 2-3 weeks<br>
+      <strong>External Application:</strong> Phone screening required first</p>
+    <div class="quick-actions">
+      <button class="action-btn btn-edit">Review Details</button>
+      <button class="action-btn" style="background: #27ae60; color: white;">Approve</button>
+      <button class="action-btn btn-deactivate">Need More Info</button>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <h4>HACAP Head Start Program
+      <span class="service-status status-inactive">Temporarily Closed</span>
+    </h4>
+    <p><strong>Service Type:</strong> Early Childhood Education | <strong>Age Range:</strong> 3-5 years<br>
+      <strong>Status:</strong> Enrollment closed until Fall 2024 | <strong>Waitlist:</strong> Available<br>
+      <strong>Client Impact:</strong> 23 families affected by closure</p>
+    <div class="quick-actions">
+      <button class="action-btn btn-edit">Edit Status</button>
+      <button class="action-btn" style="background: #9b59b6; color: white;">Notify Clients</button>
+      <button class="action-btn" style="background: #27ae60; color: white;">Alternative Options</button>
+    </div>
+  </div>
+</div>
+
+<!-- John's Quick Access - Service Administration Focused -->
+<div class="quick-access admin-focus">
+  <div class="quick-access-header">
+    <h2>Service Administration Tools</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Add Service</button>
+      <button class="btn-secondary">Client Support</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card admin-priority" data-count="147">
+      <h3>List Available Services</h3>
+      <p>Allow clients to access information on all available services within our network</p>
+      <a href="#list-services" class="category-link">Manage Services →</a>
+    </div>
+
+    <div class="category-card admin-priority" data-count="89">
+      <h3>Provide Access to Outside Services</h3>
+      <p>Connect clients with services outside our network and provide application guidance</p>
+      <a href="#outside-network" class="category-link">External Services →</a>
+    </div>
+
+    <div class="category-card" data-count="34">
+      <h3>Edit Available Services</h3>
+      <p>Update service information, hours, availability, and requirements</p>
+      <a href="#edit-services" class="category-link">Edit Services →</a>
+    </div>
+
+    <div class="category-card" data-count="1247">
+      <h3>Client Access Controls</h3>
+      <p>Manage client permissions, access levels, and account restrictions</p>
+      <a href="#client-permissions" class="category-link">Manage Access →</a>
+    </div>
+
+    <div class="category-card" data-count="15">
+      <h3>Deactivate Services</h3>
+      <p>Remove services no longer available while maintaining historical records</p>
+      <a href="#deactivate-services" class="category-link">Manage Status →</a>
+    </div>
+
+    <div class="category-card" data-count="78">
+      <h3>Show Clients How to Access Outside Systems</h3>
+      <p>Provide step-by-step guidance for applying to external organizations</p>
+      <a href="#application-help" class="category-link">Client Guides →</a>
+    </div>
+  </div>
+</div>
+
+<!-- John's Service Management Overview -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Service Management Dashboard</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Pending Service Reviews</h3>
+        <div class="service-type" style="background: #f39c12;">Action Needed</div>
+        <p><strong>New Submissions:</strong> 7 services awaiting approval<br>
+          <strong>Updates Required:</strong> 12 services need review<br>
+          <strong>Average Review Time:</strong> 2.3 days</p>
+        <a href="#" class="view-details-btn">Review Queue</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Client Support Requests</h3>
+        <div class="service-type" style="background: #e74c3c;">Priority</div>
+        <p><strong>Access Issues:</strong> 3 clients need help<br>
+          <strong>Application Assistance:</strong> 8 requests<br>
+          <strong>Service Questions:</strong> 15 inquiries</p>
+        <a href="#" class="view-details-btn">Help Clients</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>External System Integration</h3>
+        <div class="service-type">Operational</div>
+        <p><strong>API Connections:</strong> 12 systems active<br>
+          <strong>Daily Sync:</strong> 156 service updates<br>
+          <strong>Referral Success Rate:</strong> 87% completion</p>
+        <a href="#" class="view-details-btn">System Status</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Service Management</h3>
+      <ul>
+        <li><a href="#">Add Services</a></li>
+        <li><a href="#">Edit Services</a></li>
+        <li><a href="#">Service Status</a></li>
+        <li><a href="#">External Connections</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Client Support</h3>
+      <ul>
+        <li><a href="#">Access Control</a></li>
+        <li><a href="#">Application Help</a></li>
+        <li><a href="#">Account Issues</a></li>
+        <li><a href="#">User Guidance</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>System Administration</h3>
+      <ul>
+        <li><a href="#">Service Reports</a></li>
+        <li><a href="#">External APIs</a></li>
+        <li><a href="#">Data Management</a></li>
+        <li><a href="#">System Status</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Connecting People with Resources</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Provider Portal - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Service Provider customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .provider-focus .category-card {
+      border-left-color: #27ae60;
+    }
+
+    .provider-priority {
+      border-left-color: #3498db !important;
+      background: linear-gradient(135deg, #f0f9ff, #e6f3ff) !important;
+    }
+
+    .provider-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .provider-stats {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #27ae60;
+    }
+
+    .appointment-slot {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .appointment-slot:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .slot-booked {
+      background: #d1ecf1;
+      border-color: #bee5eb;
+    }
+
+    .slot-available {
+      background: #d4edda;
+      border-color: #c3e6cb;
+    }
+
+    .client-restriction {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    .service-type-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: #3498db;
+      color: white;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .appointment-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">Service Provider Portal</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Provider Tools</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Public Home</a>
+          <a href="persona-sarah.html">Provider Dashboard</a>
+          <a href="#appointments">Appointment Management</a>
+          <a href="#walkin-services">Walk-in Services</a>
+          <a href="#emergency-shelter">Emergency Shelter</a>
+          <a href="#group-services">Group Services</a>
+          <a href="#education-services">Education Services</a>
+          <a href="#client-restrictions">Client Restrictions</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">8</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search appointments..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Service Provider Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Appointment Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="#create-appointments">Create Time Slots</a></li>
+        <li><a href="#view-appointments">View All Appointments</a></li>
+        <li><a href="#filter-appointments">Filter Appointments</a></li>
+        <li><a href="#modify-appointments">Modify Appointments</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Walk-in Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="#create-walkin">Create Service Periods</a></li>
+        <li><a href="#view-walkin">View Walk-in Availability</a></li>
+        <li><a href="#modify-walkin">Modify Periods</a></li>
+        <li><a href="#deactivate-walkin">Deactivate Periods</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Emergency Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="#create-shelter">Create Shelter Resources</a></li>
+        <li><a href="#view-shelter">View Shelter Availability</a></li>
+        <li><a href="#modify-shelter">Modify Availability</a></li>
+        <li><a href="#safety-restrictions">Safety Restrictions</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Group Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="#create-meetings">Create Meetings</a></li>
+        <li><a href="#view-meetings">View All Meetings</a></li>
+        <li><a href="#announcements">Create Announcements</a></li>
+        <li><a href="#block-users">Block Users from Announcements</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Education Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="#create-courses">Create Course Listings</a></li>
+        <li><a href="#view-courses">View All Courses</a></li>
+        <li><a href="#course-announcements">Course Announcements</a></li>
+        <li><a href="#access-restrictions">Course Access Restrictions</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Client Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#client-restrictions">Client Restrictions</a></li>
+        <li><a href="#view-restricted">View Restricted Users</a></li>
+        <li><a href="#modify-restrictions">Modify Restrictions</a></li>
+        <li><a href="#remove-restrictions">Remove Restrictions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- Service Provider Welcome -->
+<div class="persona-welcome">
+  <h2>🏥 Professional Service Provider Hub</h2>
+  <p>Manage your charitable service delivery efficiently. Create appointments, manage walk-ins, coordinate emergency services, and maintain professional boundaries.</p>
+</div>
+
+<!-- Provider Dashboard -->
+<div class="container">
+  <div class="provider-dashboard">
+    <div class="provider-stats">
+      <h3>📅 This Week's Services</h3>
+      <p><strong>Appointments:</strong> 47 scheduled<br>
+        <strong>Walk-ins Served:</strong> 23 clients<br>
+        <strong>Volunteer Hours:</strong> 32 hours donated<br>
+        <strong>Client Satisfaction:</strong> ⭐ 4.8/5.0</p>
+    </div>
+
+    <div class="provider-stats">
+      <h3>⏰ Today's Schedule</h3>
+      <p><strong>9:00 AM:</strong> Legal consultation - Immigration case<br>
+        <strong>11:00 AM:</strong> Medical checkup - Chronic condition follow-up<br>
+        <strong>2:00 PM:</strong> Therapy session - PTSD counseling<br>
+        <strong>4:00 PM:</strong> Walk-in hours (2 hours available)</p>
+    </div>
+
+    <div class="provider-stats">
+      <h3>🚨 Service Alerts</h3>
+      <p><strong>Restricted Client Alert:</strong> 1 blocked user attempted booking<br>
+        <strong>Capacity Alert:</strong> Friday fully booked<br>
+        <strong>Emergency Services:</strong> 2 shelter beds available</p>
+    </div>
+  </div>
+</div>
+
+<!-- Current Appointment Management -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Current Appointment Slots</h2>
+
+  <div class="appointment-slot slot-booked">
+    <h4>
+      <span class="service-type-badge">Medical</span>
+      Thursday 2:00 PM - 3:00 PM
+    </h4>
+    <p><strong>Client:</strong> M.R. (returning patient)<br>
+      <strong>Service:</strong> Diabetes management consultation<br>
+      <strong>Notes:</strong> Follow-up on medication adjustment, bring recent lab results</p>
+    <div class="appointment-actions">
+      <button class="view-details-btn">View Details</button>
+      <button class="view-details-btn" style="background: #f39c12;">Reschedule</button>
+      <button class="view-details-btn" style="background: #95a5a6;">Send Reminder</button>
+    </div>
+  </div>
+
+  <div class="appointment-slot slot-available">
+    <h4>
+      <span class="service-type-badge" style="background: #27ae60;">Legal</span>
+      Friday 10:00 AM - 11:30 AM
+    </h4>
+    <p><strong>Status:</strong> Available for booking<br>
+      <strong>Service Type:</strong> Immigration law consultation<br>
+      <strong>Duration:</strong> 90 minutes | <strong>Capacity:</strong> 1 client</p>
+    <div class="appointment-actions">
+      <button class="view-details-btn" style="background: #27ae60;">Available</button>
+      <button class="view-details-btn" style="background: #3498db;">Modify Slot</button>
+      <button class="view-details-btn" style="background: #e74c3c;">Remove Slot</button>
+    </div>
+  </div>
+
+  <div class="client-restriction">
+    <h4>⚠️ Client Restriction Alert</h4>
+    <p><strong>User:</strong> J.D. (ID: #2847) attempted to book appointment<br>
+      <strong>Restriction Reason:</strong> Disruptive behavior in previous session<br>
+      <strong>Action:</strong> Booking automatically blocked, client redirected to alternative providers</p>
+    <div class="appointment-actions">
+      <button class="view-details-btn">Review Restriction</button>
+      <button class="view-details-btn" style="background: #f39c12;">Modify Restriction</button>
+    </div>
+  </div>
+</div>
+
+<!-- Service Provider Quick Access -->
+<div class="quick-access provider-focus">
+  <div class="quick-access-header">
+    <h2>Service Provider Management Tools</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Create Time Slots</button>
+      <button class="btn-secondary">Emergency Mode</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card provider-priority" data-count="47">
+      <h3>Appointment Management</h3>
+      <p>Create time slots, view bookings, filter by service type, modify existing appointments</p>
+      <a href="#create-appointments" class="category-link">Manage Appointments →</a>
+    </div>
+
+    <div class="category-card provider-priority" data-count="23">
+      <h3>Walk-in Service Management</h3>
+      <p>Create service periods, set capacity limits, manage walk-in availability and utilization</p>
+      <a href="#create-walkin" class="category-link">Manage Walk-ins →</a>
+    </div>
+
+    <div class="category-card" data-count="12">
+      <h3>Emergency Shelter Services</h3>
+      <p>Create shelter resources, manage bed availability, handle crisis situations and safety</p>
+      <a href="#create-shelter" class="category-link">Manage Shelter →</a>
+    </div>
+
+    <div class="category-card" data-count="8">
+      <h3>Group Meeting Services</h3>
+      <p>Create meeting information, manage announcements, coordinate group support services</p>
+      <a href="#create-meetings" class="category-link">Manage Groups →</a>
+    </div>
+
+    <div class="category-card" data-count="15">
+      <h3>Education Course Management</h3>
+      <p>Create course listings, manage enrollment, handle course announcements and access</p>
+      <a href="#create-courses" class="category-link">Manage Courses →</a>
+    </div>
+
+    <div class="category-card" data-count="34">
+      <h3>Client Access Restrictions</h3>
+      <p>Add users to restricted lists, view restricted users, modify and remove restrictions</p>
+      <a href="#client-restrictions" class="category-link">Manage Access →</a>
+    </div>
+
+    <div class="category-card" data-count="89">
+      <h3>Service Filtering & Organization</h3>
+      <p>Filter services by date, type, status, and urgency for efficient service management</p>
+      <a href="#filter-appointments" class="category-link">Filter Services →</a>
+    </div>
+
+    <div class="category-card" data-count="156">
+      <h3>Professional Service Delivery</h3>
+      <p>Maintain professional boundaries, deliver quality charitable services, track impact</p>
+      <a href="#service-delivery" class="category-link">Service Quality →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Service Provider Activity Summary -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Recent Service Provider Activity</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Appointment Services</h3>
+        <div class="service-type">Active</div>
+        <p><strong>This Week:</strong> 47 appointments scheduled<br>
+          <strong>Completion Rate:</strong> 94% (3 no-shows)<br>
+          <strong>Average Duration:</strong> 52 minutes per session</p>
+        <a href="#" class="view-details-btn">View Schedule</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Walk-in Services</h3>
+        <div class="service-type">Active</div>
+        <p><strong>Daily Capacity:</strong> 8 clients per 4-hour period<br>
+          <strong>Utilization:</strong> 78% average capacity<br>
+          <strong>Wait Time:</strong> 15 minutes average</p>
+        <a href="#" class="view-details-btn">Manage Capacity</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Client Restrictions</h3>
+        <div class="service-type" style="background: #f39c12;">Review</div>
+        <p><strong>Active Restrictions:</strong> 7 clients<br>
+          <strong>Recent Activity:</strong> 2 restriction modifications<br>
+          <strong>Blocked Attempts:</strong> 1 this week</p>
+        <a href="#" class="view-details-btn">Review Restrictions</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Service Management</h3>
+      <ul>
+        <li><a href="#">Appointment Scheduling</a></li>
+        <li><a href="#">Walk-in Services</a></li>
+        <li><a href="#">Emergency Services</a></li>
+        <li><a href="#">Group Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Client Management</h3>
+      <ul>
+        <li><a href="#">Access Control</a></li>
+        <li><a href="#">Restriction Management</a></li>
+        <li><a href="#">Professional Boundaries</a></li>
+        <li><a href="#">Service Quality</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Professional Support</h3>
+      <ul>
+        <li><a href="#">Provider Resources</a></li>
+        <li><a href="#">Training Materials</a></li>
+        <li><a href="#">Technical Support</a></li>
+        <li><a href="#">Ethics Guidelines</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Professional Service Provider Portal</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Administration - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* System Admin customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .system-focus .category-card {
+      border-left-color: #2c3e50;
+    }
+
+    .system-priority {
+      border-left-color: #e74c3c !important;
+      background: linear-gradient(135deg, #fff5f5, #ffe6e6) !important;
+    }
+
+    .system-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .system-stats {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #2c3e50;
+    }
+
+    .alert-critical {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    .alert-warning {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      color: #856404;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    .system-metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .metric-value {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .status-good {
+      color: #27ae60;
+    }
+
+    .status-warning {
+      color: #f39c12;
+    }
+
+    .status-critical {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <h1 class="page-title">System Administration</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Admin Controls</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Public Home</a>
+          <a href="persona-tommy.html">Admin Dashboard</a>
+          <a href="#system-logs">System Logs</a>
+          <a href="#user-management">User Management</a>
+          <a href="#performance">Performance Monitor</a>
+          <a href="#security">Security Center</a>
+          <a href="#budget">IT Budget</a>
+          <a href="#incidents">Incident Management</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">12</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search system components..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- System Admin Navigation -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">System Management</a>
+      <ul class="dropdown-menu">
+        <li><a href="#system-logs">View System Logs</a></li>
+        <li><a href="#performance">Performance Statistics</a></li>
+        <li><a href="#uptime">Uptime Monitoring</a></li>
+        <li><a href="#maintenance">Maintenance Schedule</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">User Administration</a>
+      <ul class="dropdown-menu">
+        <li><a href="#view-users">View All Users</a></li>
+        <li><a href="#user-details">View Single User</a></li>
+        <li><a href="#assign-roles">Assign Roles</a></li>
+        <li><a href="#user-accounts">Manage Accounts</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Security & Access</a>
+      <ul class="dropdown-menu">
+        <li><a href="#mfa">Multi-Factor Authentication</a></li>
+        <li><a href="#access-levels">Access Permissions</a></li>
+        <li><a href="#security-logs">Security Logs</a></li>
+        <li><a href="#user-restrictions">User Restrictions</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Content Moderation</a>
+      <ul class="dropdown-menu">
+        <li><a href="#view-posts">View All Posts</a></li>
+        <li><a href="#user-posts">View User's Posts</a></li>
+        <li><a href="#remove-posts">Remove Posts</a></li>
+        <li><a href="#user-warnings">Warn Users</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Financial & Operations</a>
+      <ul class="dropdown-menu">
+        <li><a href="#budget">IT Budget Management</a></li>
+        <li><a href="#costs">System Costs</a></li>
+        <li><a href="#finance-reports">Financial Reports</a></li>
+        <li><a href="#resource-allocation">Resource Allocation</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">Emergency Response</a></li>
+  </ul>
+</nav>
+
+<!-- System Status Welcome -->
+<div class="persona-welcome">
+  <h2>⚙️ System Administration Center</h2>
+  <p>Monitor system health, manage users, ensure 99% uptime, and coordinate IT infrastructure for the entire community resource network.</p>
+</div>
+
+<!-- Critical System Alerts -->
+<div class="container">
+  <div class="alert-critical">
+    <h4>🚨 Critical Alert: Database Connection Issues</h4>
+    <p>Primary database showing intermittent connection drops. Backup systems active. <strong>Action Required:</strong> Contact hosting provider immediately.</p>
+    <button class="view-details-btn" style="background: #e74c3c;">Investigate Now</button>
+  </div>
+
+  <div class="alert-warning">
+    <h4>⚠️ Warning: High Memory Usage</h4>
+    <p>Server memory usage at 87%. Consider scaling resources before reaching critical threshold of 95%.</p>
+    <button class="view-details-btn" style="background: #f39c12;">Monitor & Scale</button>
+  </div>
+</div>
+
+<!-- System Overview Dashboard -->
+<div class="container">
+  <div class="system-dashboard">
+    <div class="system-stats">
+      <h3>🖥️ System Health</h3>
+      <div class="system-metric">
+        <span>System Uptime</span>
+        <span class="metric-value status-good">99.7%</span>
+      </div>
+      <div class="system-metric">
+        <span>Response Time</span>
+        <span class="metric-value status-good">1.2s avg</span>
+      </div>
+      <div class="system-metric">
+        <span>Error Rate</span>
+        <span class="metric-value status-warning">0.3%</span>
+      </div>
+      <div class="system-metric">
+        <span>Active Sessions</span>
+        <span class="metric-value">1,247 users</span>
+      </div>
+    </div>
+
+    <div class="system-stats">
+      <h3>👥 User Management</h3>
+      <div class="system-metric">
+        <span>Total Users</span>
+        <span class="metric-value">5,673</span>
+      </div>
+      <div class="system-metric">
+        <span>New This Week</span>
+        <span class="metric-value">89</span>
+      </div>
+      <div class="system-metric">
+        <span>Banned Users</span>
+        <span class="metric-value status-warning">23</span>
+      </div>
+      <div class="system-metric">
+        <span>Admin Accounts</span>
+        <span class="metric-value">12</span>
+      </div>
+    </div>
+
+    <div class="system-stats">
+      <h3>💰 IT Budget Status</h3>
+      <div class="system-metric">
+        <span>Monthly Budget</span>
+        <span class="metric-value">$8,500</span>
+      </div>
+      <div class="system-metric">
+        <span>Spent This Month</span>
+        <span class="metric-value">$6,234</span>
+      </div>
+      <div class="system-metric">
+        <span>Remaining</span>
+        <span class="metric-value status-good">$2,266</span>
+      </div>
+      <div class="system-metric">
+        <span>Annual Target</span>
+        <span class="metric-value">On Track</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- System Admin Quick Access -->
+<div class="quick-access system-focus">
+  <div class="quick-access-header">
+    <h2>System Administration Tools</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary">Emergency Mode</button>
+      <button class="btn-secondary">Backup Systems</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card system-priority" data-count="24">
+      <h3>System Error Prevention</h3>
+      <p>Monitor logs, prevent system failures, resolve errors, maintain 99% uptime</p>
+      <a href="#system-logs" class="category-link">View Logs →</a>
+    </div>
+
+    <div class="category-card system-priority" data-count="5673">
+      <h3>User Account Management</h3>
+      <p>Manage user accounts, access levels, permissions, and account lifecycle</p>
+      <a href="#view-users" class="category-link">Manage Users →</a>
+    </div>
+
+    <div class="category-card" data-count="156">
+      <h3>Performance Statistics</h3>
+      <p>Review system performance, response times, resource usage, optimization</p>
+      <a href="#performance" class="category-link">View Stats →</a>
+    </div>
+
+    <div class="category-card" data-count="12">
+      <h3>Multi-Factor Authentication</h3>
+      <p>Maintain service security, enforce MFA, manage authentication policies</p>
+      <a href="#mfa" class="category-link">Security Settings →</a>
+    </div>
+
+    <div class="category-card" data-count="8500">
+      <h3>IT Budget Coordination</h3>
+      <p>Manage IT budget allocation, coordinate with finance, track expenses</p>
+      <a href="#budget" class="category-link">Budget Management →</a>
+    </div>
+
+    <div class="category-card" data-count="45">
+      <h3>Incident & Risk Management</h3>
+      <p>Handle system incidents, assess risks, implement recovery procedures</p>
+      <a href="#incidents" class="category-link">Incident Response →</a>
+    </div>
+
+    <div class="category-card" data-count="89">
+      <h3>User Content Moderation</h3>
+      <p>Review user posts, remove harmful content, warn users, maintain community standards</p>
+      <a href="#view-posts" class="category-link">Moderate Content →</a>
+    </div>
+
+    <div class="category-card" data-count="134">
+      <h3>User Data Dashboards</h3>
+      <p>Access comprehensive user data, analytics, behavior patterns, system usage</p>
+      <a href="#user-data" class="category-link">View Dashboards →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Recent System Activity -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Recent System Administration Activity</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>User Account Actions</h3>
+        <div class="service-type">Today</div>
+        <p><strong>Created:</strong> 12 new accounts<br>
+          <strong>Suspended:</strong> 2 accounts (policy violation)<br>
+          <strong>Password Resets:</strong> 34 completed</p>
+        <a href="#" class="view-details-btn">View Details</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>System Performance</h3>
+        <div class="service-type" style="background: #27ae60;">Good</div>
+        <p><strong>Avg Response:</strong> 1.2 seconds<br>
+          <strong>Peak Load:</strong> 2:00 PM (1,400 concurrent)<br>
+          <strong>Error Rate:</strong> 0.3% (within acceptable)</p>
+        <a href="#" class="view-details-btn">Performance Report</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Security Events</h3>
+        <div class="service-type" style="background: #f39c12;">Monitor</div>
+        <p><strong>Failed Logins:</strong> 156 attempts blocked<br>
+          <strong>MFA Enabled:</strong> 89% of active users<br>
+          <strong>Security Scans:</strong> All systems clean</p>
+        <a href="#" class="view-details-btn">Security Report</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>System Operations</h3>
+      <ul>
+        <li><a href="#">System Monitoring</a></li>
+        <li><a href="#">Performance Logs</a></li>
+        <li><a href="#">Error Prevention</a></li>
+        <li><a href="#">Uptime Management</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>User Management</h3>
+      <ul>
+        <li><a href="#">Account Administration</a></li>
+        <li><a href="#">Access Control</a></li>
+        <li><a href="#">Role Assignment</a></li>
+        <li><a href="#">User Analytics</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Security & Compliance</h3>
+      <ul>
+        <li><a href="#">Security Monitoring</a></li>
+        <li><a href="#">Authentication</a></li>
+        <li><a href="#">Data Protection</a></li>
+        <li><a href="#">Incident Response</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - System Administration Center</p>
+  </div>
+</footer>
+</body>
+</html>

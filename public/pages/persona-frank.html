@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Services - Community Resource Support</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Emergency Service Recipient customizations */
+    .persona-welcome {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .emergency-focus .category-card {
+      border-left-color: #e74c3c;
+    }
+
+    .emergency-priority {
+      border-left-color: #f39c12 !important;
+      background: linear-gradient(135deg, #fff8e1, #ffecb3) !important;
+      animation: urgent-pulse 2s infinite;
+    }
+
+    @keyframes urgent-pulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3); }
+      50% { box-shadow: 0 8px 25px rgba(243, 156, 18, 0.6); }
+    }
+
+    .crisis-help {
+      background: #f8d7da;
+      border: 2px solid #e74c3c;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .emergency-contact {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    .service-immediate {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .help-button {
+      background: #e74c3c;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 0.5rem;
+      transition: all 0.3s;
+    }
+
+    .help-button:hover {
+      background: #c0392b;
+      transform: scale(1.05);
+    }
+
+    .simple-access {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .no-account-needed {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<!-- Header - Simplified for Emergency Access -->
+<header class="main-header">
+  <h1 class="page-title">Emergency Help Available</h1>
+
+  <div class="header-right">
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn">Quick Help</button>
+        <div class="dropdown-content">
+          <a href="../dashboard.html">Home</a>
+          <a href="#emergency-shelter">🏠 Emergency Shelter</a>
+          <a href="#food-now">🍞 Food Right Now</a>
+          <a href="#crisis-help">🚨 Crisis Help</a>
+          <a href="#legal-emergency">⚖️ Legal Emergency</a>
+          <a href="#domestic-violence">🛡️ Domestic Violence</a>
+          <a href="#benefits">💰 Emergency Benefits</a>
+        </div>
+      </div>
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">3</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search emergency help..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- Emergency/Crisis Navigation - Simplified -->
+<nav class="main-nav">
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="#emergency-shelter" class="nav-link">🏠 Emergency Housing</a></li>
+    <li class="nav-item"><a href="#food-now" class="nav-link">🍞 Food Right Now</a></li>
+    <li class="nav-item"><a href="#crisis-help" class="nav-link">🚨 Crisis Support</a></li>
+    <li class="nav-item"><a href="#legal-emergency" class="nav-link">⚖️ Legal Help</a></li>
+    <li class="nav-item"><a href="#domestic-violence" class="nav-link">🛡️ Safety</a></li>
+    <li class="nav-item"><a href="#benefits" class="nav-link">💰 Emergency Money</a></li>
+  </ul>
+</nav>
+
+<!-- Emergency Crisis Help Banner -->
+<div class="crisis-help">
+  <h2>🚨 Need Help Right Now?</h2>
+  <p style="font-size: 1.2rem; margin: 1rem 0;">If you are in immediate danger, call 911. For crisis support, mental health emergencies, or if you need someone to talk to right now:</p>
+  <div>
+    <button class="help-button">Call Crisis Line: 988</button>
+    <button class="help-button" style="background: #27ae60;">Text Crisis Support: 741741</button>
+  </div>
+</div>
+
+<!-- No Account Required Notice -->
+<div class="no-account-needed">
+  <h3>✅ No Account Required</h3>
+  <p>You don't need to set up an account to get emergency help. All basic services are available immediately.</p>
+</div>
+
+<!-- Emergency Services Welcome -->
+<div class="persona-welcome">
+  <h2>🆘 Emergency Community Support</h2>
+  <p class="simple-access">Get immediate help with housing, food, safety, and crisis support. Simple access to services when you need them most.</p>
+</div>
+
+<!-- Immediate Emergency Contacts -->
+<div class="container">
+  <h2 style="color: #2c3e50; margin-bottom: 1rem;">Get Help Right Now</h2>
+
+  <div class="emergency-contact">
+    <h4>🏠 Emergency Shelter - Tonight</h4>
+    <p><strong>Salvation Army Emergency Shelter:</strong> (319) 365-4357<br>
+      <strong>Address:</strong> 1116 7th Avenue SE, Cedar Rapids<br>
+      <strong>Available:</strong> 12 beds available tonight, no waiting list</p>
+    <button class="view-details-btn" style="background: #e74c3c;">Call Now</button>
+    <button class="view-details-btn" style="background: #27ae60;">Get Directions</button>
+  </div>
+
+  <div class="emergency-contact">
+    <h4>🍞 Food Available Today</h4>
+    <p><strong>Community Food Bank Emergency:</strong> Open until 6 PM<br>
+      <strong>Address:</strong> 1530 1st Avenue E, Cedar Rapids<br>
+      <strong>What to bring:</strong> Just yourself - no paperwork needed for emergency food</p>
+    <button class="view-details-btn" style="background: #27ae60;">Get Food Now</button>
+  </div>
+
+  <div class="service-immediate">
+    <h4>🚨 Crisis Support Available 24/7</h4>
+    <p><strong>Crisis & Advocacy Services:</strong> (319) 362-2846<br>
+      <strong>Domestic Violence Hotline:</strong> 1-800-799-7233<br>
+      <strong>Mental Health Crisis:</strong> Call 988 or text HOME to 741741</p>
+  </div>
+</div>
+
+<!-- Emergency Services Quick Access -->
+<div class="quick-access emergency-focus">
+  <div class="quick-access-header">
+    <h2>Emergency Services - No Account Needed</h2>
+    <div class="quick-access-controls">
+      <button class="btn-secondary" style="background: #e74c3c;">Call 911</button>
+      <button class="btn-secondary" style="background: #f39c12;">Crisis Line</button>
+    </div>
+  </div>
+
+  <div class="service-categories">
+    <div class="category-card emergency-priority" data-count="24/7">
+      <h3>Emergency Shelter Tonight</h3>
+      <p>Safe place to sleep, meals included, no questions asked, available immediately</p>
+      <a href="#emergency-shelter" class="category-link">Find Shelter →</a>
+    </div>
+
+    <div class="category-card emergency-priority" data-count="Open">
+      <h3>Food Available Now</h3>
+      <p>Emergency food, no paperwork required, open today, multiple locations</p>
+      <a href="#food-now" class="category-link">Get Food →</a>
+    </div>
+
+    <div class="category-card" data-count="24/7">
+      <h3>Crisis Support & Safety</h3>
+      <p>Domestic violence help, mental health crisis, suicide prevention, immediate support</p>
+      <a href="#crisis-help" class="category-link">Get Crisis Help →</a>
+    </div>
+
+    <div class="category-card" data-count="Today">
+      <h3>Emergency Legal Help</h3>
+      <p>Immigration emergency, eviction notice, police issues, legal crisis assistance</p>
+      <a href="#legal-emergency" class="category-link">Legal Emergency →</a>
+    </div>
+
+    <div class="category-card" data-count="Apply">
+      <h3>Emergency Benefits</h3>
+      <p>Food stamps, cash assistance, medical help, utility assistance, apply immediately</p>
+      <a href="#benefits" class="category-link">Apply for Benefits →</a>
+    </div>
+
+    <div class="category-card" data-count="Mobile">
+      <h3>Mobile-Friendly Services</h3>
+      <p>Access services on any phone, simple interface, no high-speed internet needed</p>
+      <a href="#mobile-help" class="category-link">Mobile Access →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Location-Based Emergency Services -->
+<div class="main-content">
+  <div class="featured-services">
+    <h2>Services Near You in Cedar Rapids</h2>
+    <div class="service-grid">
+      <div class="service-preview">
+        <h3>Emergency Housing</h3>
+        <div class="service-type" style="background: #e74c3c;">Tonight</div>
+        <p><strong>Beds Available:</strong> 12 beds at Salvation Army<br>
+          <strong>Family Shelter:</strong> 3 family rooms at Catherine McAuley<br>
+          <strong>No Cost:</strong> Free meals and shelter</p>
+        <a href="#" class="view-details-btn">Find Shelter</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Food Banks Open Today</h3>
+        <div class="service-type" style="background: #27ae60;">Open</div>
+        <p><strong>Community Food Bank:</strong> Until 6 PM<br>
+          <strong>St. Paul's Emergency Pantry:</strong> Until 4 PM<br>
+          <strong>Mobile Food Truck:</strong> 3 PM at Walmart</p>
+        <a href="#" class="view-details-btn">Get Food</a>
+      </div>
+
+      <div class="service-preview">
+        <h3>Government Benefits</h3>
+        <div class="service-type" style="background: #3498db;">Apply Now</div>
+        <p><strong>Emergency SNAP:</strong> Food stamps in 24 hours<br>
+          <strong>Emergency Cash:</strong> Up to $200 today<br>
+          <strong>Medicaid:</strong> Emergency medical coverage</p>
+        <a href="#" class="view-details-btn">Apply Online</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer - Simplified for Emergency Access -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Emergency Help</h3>
+      <ul>
+        <li><a href="#">Crisis Line: 988</a></li>
+        <li><a href="#">Emergency Shelter</a></li>
+        <li><a href="#">Food Right Now</a></li>
+        <li><a href="#">Safety Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Basic Needs</h3>
+      <ul>
+        <li><a href="#">Housing Assistance</a></li>
+        <li><a href="#">Food Programs</a></li>
+        <li><a href="#">Emergency Benefits</a></li>
+        <li><a href="#">Medical Help</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Get Support</h3>
+      <ul>
+        <li><a href="#">Legal Emergency</a></li>
+        <li><a href="#">Domestic Violence</a></li>
+        <li><a href="#">Mental Health Crisis</a></li>
+        <li><a href="#">Immigration Help</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Community Resource Support - Emergency Help Available 24/7</p>
+  </div>
+</footer>
+</body>
+</html>

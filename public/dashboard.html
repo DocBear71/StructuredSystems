@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Resource Support System</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<!-- Header Template E -->
+<header class="main-header">
+  <!-- Page Title (E) Left Side -->
+  <h1 class="page-title">Community Resource Support</h1>
+
+  <!-- Right side container -->
+  <div class="header-right">
+    <!-- Login/Settings (A) -->
+    <div class="login-notifications-row">
+      <div class="dropdown">
+        <button class="dropdown-btn" id="loginBtn">Login / Settings</button>
+        <div class="dropdown-content" id="loginDropdown">
+          <strong style="padding: 8px 16px; color: #2c3e50; font-size: 0.9rem;">Service Recipients</strong>
+          <a href="pages/persona-edward.html">Edward (Education Seeker)</a>
+          <a href="pages/persona-mary.html">Mary (Job Seeker)</a>
+          <a href="pages/persona-pete.html">Pete (Chronic Patient)</a>
+          <a href="pages/persona-frank.html">Frank (Emergency Services)</a>
+          <hr style="margin: 0.5rem 0;">
+          <strong style="padding: 8px 16px; color: #2c3e50; font-size: 0.9rem;">Service Providers</strong>
+          <a href="pages/persona-angie.html">Angie (Volunteer/Tax Help)</a>
+          <a href="pages/persona-sarah.html">Sarah Chen (Professional Provider)</a>
+          <hr style="margin: 0.5rem 0;">
+          <strong style="padding: 8px 16px; color: #2c3e50; font-size: 0.9rem;">Volunteers</strong>
+          <a href="pages/persona-dave.html">Dave (Transportation)</a>
+          <a href="pages/persona-bobby.html">Bobby (Volunteer Coordinator)</a>
+          <hr style="margin: 0.5rem 0;">
+          <strong style="padding: 8px 16px; color: #2c3e50; font-size: 0.9rem;">System</strong>
+          <a href="pages/persona-tommy.html">Tommy (System Administrator)</a>
+          <a href="pages/persona-john.html">John (Service Lister)</a>
+          <hr style="margin: 0.5rem 0;">
+          <a href="pages/login.html">Generic Login</a>
+          <a href="#settings">Settings</a>
+          <a href="#logout">Logout</a>
+        </div>
+      </div>
+      <!-- Notifications (B) -->
+      <div class="notifications">
+        <button class="notification-btn">🔔</button>
+        <span class="notification-badge">3</span>
+      </div>
+    </div>
+
+    <!-- Search (C) -->
+    <div class="search-container">
+      <input type="text" placeholder="Search services..." class="search-input">
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+
+
+</header>
+
+<!-- Dynamic Menu (D) - Changes based on user persona -->
+<nav class="main-nav" id="dynamicMenu">
+  <ul class="nav-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link">Services</a>
+      <ul class="dropdown-menu">
+        <li><a href="pages/services/appointment-services.html">Appointment Services</a></li>
+        <li><a href="pages/services/walkin-services.html">Walk-in Services</a></li>
+        <li><a href="pages/services/emergency-shelter.html">Emergency Shelter</a></li>
+        <li><a href="pages/services/group-meetings.html">Group Meetings</a></li>
+        <li><a href="pages/services/education-classes.html">Education Classes</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">Find Help</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Volunteer</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Resources</a></li>
+  </ul>
+</nav>
+
+<!-- Quick Access (F) -->
+<div class="quick-access">
+  <h2>Quick Access to Services</h2>
+  <div class="service-categories">
+    <div class="category-card" data-count="17">
+      <h3>Food & Pantry</h3>
+      <p>Find local food banks and meal programs</p>
+      <a href="pages/services/walkin-services.html?category=food" class="category-link">Browse →</a>
+    </div>
+    <div class="category-card" data-count="12">
+      <h3>Housing & Shelter</h3>
+      <p>Emergency and transitional housing options</p>
+      <a href="pages/services/emergency-shelter.html" class="category-link">Browse →</a>
+    </div>
+    <div class="category-card" data-count="8">
+      <h3>Healthcare</h3>
+      <p>Medical, dental, and mental health services</p>
+      <a href="pages/services/appointment-services.html?category=health" class="category-link">Browse →</a>
+    </div>
+    <div class="category-card" data-count="5">
+      <h3>Education</h3>
+      <p>Classes, tutoring, and skill development</p>
+      <a href="pages/services/education-classes.html" class="category-link">Browse →</a>
+    </div>
+    <div class="category-card" data-count="3">
+      <h3>Legal Services</h3>
+      <p>Free legal consultation and assistance</p>
+      <a href="pages/services/appointment-services.html?category=legal" class="category-link">Browse →</a>
+    </div>
+    <div class="category-card" data-count="11">
+      <h3>Support Groups</h3>
+      <p>AA, counseling, and peer support meetings</p>
+      <a href="pages/services/group-meetings.html" class="category-link">Browse →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content Area -->
+<main class="main-content">
+  <section class="hero-section">
+    <h2>Connecting You to Community Resources</h2>
+    <p>Find the help you need, when you need it. Our platform connects you with local service providers, volunteers, and
+      community support.</p>
+  </section>
+
+  <section class="featured-services">
+    <h2>Featured Services</h2>
+    <div class="service-grid">
+      <!-- These will be populated dynamically -->
+      <div class="service-preview">
+        <h3>Free Legal Consultation</h3>
+        <p>Available every Tuesday, 2-4 PM</p>
+        <span class="service-type">Appointment</span>
+      </div>
+      <div class="service-preview">
+        <h3>Community Food Bank</h3>
+        <p>Walk-in service, Mon-Fri 9 AM-3 PM</p>
+        <span class="service-type">Walk-in</span>
+      </div>
+      <div class="service-preview">
+        <h3>Emergency Shelter</h3>
+        <p>24/7 availability for crisis situations</p>
+        <span class="service-type">Emergency</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer (Z-Footer) -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Get Help</h3>
+      <ul>
+        <li><a href="#emergency">Emergency Services</a></li>
+        <li><a href="#food">Food Assistance</a></li>
+        <li><a href="#housing">Housing Support</a></li>
+        <li><a href="#healthcare">Healthcare Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Provide Help</h3>
+      <ul>
+        <li><a href="#volunteer">Become a Volunteer</a></li>
+        <li><a href="#donate">Make a Donation</a></li>
+        <li><a href="#provider">Service Provider Sign-up</a></li>
+        <li><a href="#organization">Organization Registration</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Information</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#terms">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Connect</h3>
+      <p>📞 Emergency Helpline: 211</p>
+      <p>📧 info@communityresources.org</p>
+      <p>📍 Serving Cedar Rapids, IA area</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Community Resource Support System. Connecting communities, empowering lives.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/components.js"></script>
+</body>
+</html>
